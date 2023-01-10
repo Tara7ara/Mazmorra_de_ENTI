@@ -1,7 +1,7 @@
 class EnemyTransport {
-    val name: String = ""
-    val hp: Int = 1
-    val maxHp: Int = 1
-    val dmg: Int = 1
+    var name: String = ""
+    var hp: Int = 1
+    var max_hp: Int = 1
+    var dmg: Int = 1
 
 }
