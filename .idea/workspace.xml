@@ -4,16 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="38bb5b0c-2b95-456b-abcd-e42991c5bea3" name="Changes" comment="Ahora si que compila jeje">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/GoblinStats.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="38bb5b0c-2b95-456b-abcd-e42991c5bea3" name="Changes" comment="MUCHO TRABAJO ADELANTADO">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/EnemyTransport.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/EnemyTransport.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/JefeStats.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/JefeStats.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/OrcoStats.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/OrcoStats.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/PlayerStats.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/PlayerStats.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/TrollStats.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/TrollStats.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +62,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671196913586</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="MUCHO TRABAJO ADELANTADO">
+      <created>1673312931005</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1673312931005</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -84,6 +85,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Enti Dungeons, un nuevo juego creado en kotlin" />
-    <option name="LAST_COMMIT_MESSAGE" value="Enti Dungeons, un nuevo juego creado en kotlin" />
+    <MESSAGE value="MUCHO TRABAJO ADELANTADO" />
+    <option name="LAST_COMMIT_MESSAGE" value="MUCHO TRABAJO ADELANTADO" />
   </component>
 </project>

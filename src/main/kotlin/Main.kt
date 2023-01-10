@@ -1,8 +1,6 @@
 
-fun main(args: Array<String>) {
-
     fun clearScreen() {
-        for (i in 1..25) {
+        for (i in 1..50) {
             println()
         }
     }
@@ -32,13 +30,6 @@ fun main(args: Array<String>) {
             charArrayOf('#', '.', 'T', '.', '.', 'K', '.', 'P', '.', '#'),
             charArrayOf('#', '#', '#', '#', '#', '#', '#', '#', '#', '#')
     )
-    
-    for (fila in Map1) {
-        for (character in fila) {
-            print(" $character ")
-        }
-        println(" ")
-    }
 
     val player = PlayerStats("player")
     val orco = OrcoStats
@@ -46,27 +37,6 @@ fun main(args: Array<String>) {
     val troll = TrollStats
     val jefe = JefeStats
     val enemy = EnemyTransport()
-
-    fun mapa() {
-        for (auxiliar in 0..10) {
-            for (i in 0..10) {
-                print("${Map1[auxiliar][i]} ")
-            }
-            println()
-        }
-        Map1[player.posX][player.posY] = '.'
-    }
-
-    /*fun initPlayer(){
-        for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 10; j++) {
-                if (Map1[i][j] == '@') {
-                    player.posX = i;
-                    player.posY = j;
-                }
-            }
-        }
-    }*/
 
     fun inventory() {
         println("\n=== Estadisticas ===")
@@ -127,6 +97,107 @@ fun main(args: Array<String>) {
             }
         }
     }
+
+    fun battle() {
+        println("${enemy.name} ha atacado a ${player.name}, ${player.name} ha perdido ${enemy.dmg}HP")
+        player.hp -= enemy.dmg
+        println("\n[${player.name}] tiene [${player.hp}/${player.maxHp}]HP")
+        println("\n[${enemy.name}] tiene [${enemy.hp}/${enemy.max_hp}]HP")
+        println("\n¿Qué quieres hacer? Si no sabes qué hacer, escribe help")
+        val input = readLine()!!
+        val splitInput = input.split(" ")
+        if (splitInput.isNotEmpty()) {
+            if (splitInput.size > 1) {
+                if (splitInput[0] == "use" && splitInput.size == 2) {
+                    if (splitInput[1] == "potion") {
+                        if (player.potions > 0) {
+                            player.potions--
+                            println("\nHas usado una poción, recuperas 30 de hp")
+                            player.hp += 30
+                            if (player.hp > player.maxHp) {
+                                player.hp = player.maxHp
+                            }
+                            println("Presione Enter para continuar...")
+                            readLine()
+                        }
+                        else {
+                            println("\nNo tienes pociones")
+                            println("Presione Enter para continuar...")
+                            readLine()
+                        }
+                    } else if (splitInput[1] == "bomb") {
+                        if (player.bombs > 0) {
+                            player.bombs--
+                            println("\nHas usado una bomba, ${enemy.name} ha perdido 50 de hp")
+                            enemy.hp -= 50
+                            println("Presione Enter para continuar...")
+                            readLine()
+                        }
+                        else {
+                            println("\nNo tienes bombas")
+                            println("Presione Enter para continuar...")
+                            readLine()
+                        }
+                    } else if (splitInput[1] == "sword") {
+                        if (player.sword == true) {
+                            println("\nHas usado una espada, ${enemy.name} ha perdido ${player.dmg} de hp")
+                            enemy.hp -= player.dmg
+                            println("Presione Enter para continuar...")
+                            readLine()
+                        } else {
+                            println("\nNo tienes espada")
+                            println("Presione Enter para continuar...")
+                            readLine()
+                        }
+                    }
+                }
+            } else if (splitInput[0] == "hit") {
+                println("Has atacado sin arma a ${enemy.name}, y ha perdido ${player.dmg} de hp")
+                enemy.hp -= player.dmg
+                println("Presione Enter para continuar...")
+                readLine()
+            } else if (splitInput[0] == "inventory") {
+                inventory()
+                println("Presione Enter para continuar...")
+                readLine()
+            }
+            else {
+                println("Este no es un comando")
+                println("Presione Enter para continuar...")
+                readLine()
+            }
+        }
+    }
+
+    fun mapCollision(posX: Int, posY: Int): Boolean {
+        var returnCollision = false
+        val input: MutableList<String> = mutableListOf()
+        var playerInput = ""
+        if (posX < 0 || posX >= 10 || posY < 0 || posY >= 10) {
+            returnCollision = true
+        } else if (Map1[posX][posY] == '#') {
+            returnCollision = true
+        } else if (Map1[posX][posY] == 'L') {
+            println("\nLa puerta esta cerrada, que quieres hacer?\n")
+            readLine()
+            val inputLocal = readLine()
+            if (inputLocal != null) {
+                val splitInput = inputLocal.split(" ")
+                if (splitInput.size >= 2) {
+                    if (splitInput[0] == "use" && splitInput[1] == "key" && player.key) {
+                        println("\n== Usaste 1 llave para abrir la puerta. ==\nLLaves disponibles en el inventario: 0.\n")
+                        player.key = false
+                    } else {
+                        println("\nUsa la llave para abrir la puerta.\n\n")
+                        returnCollision = true
+                    }
+                }
+            }
+        }
+        return returnCollision
+    }
+
+  //LAS SIGUIENTES FUNCIONES SON TEXTO
 
     fun objetos() {
         when (Map2[player.posX][player.posY]) {
@@ -242,98 +313,41 @@ fun main(args: Array<String>) {
         println("En esta versión hay un error, cuando estés en la puerta, ve con calma con los enter, para que no se te cierre el programa")
     }
 
-    fun battle() {
-        println("${enemy.name} ha atacado a ${player.name}, ${player.name} ha perdido ${enemy.dmg}HP")
-        player.hp -= enemy.dmg
-        println("\n[${player.name}] tiene [${player.hp}/${player.maxHp}]HP")
-        println("\n[${enemy.name}] tiene [${enemy.hp}/${enemy.max_hp}]HP")
-        println("\nque quieres hacer? Si no sabes que hacer, escribe help")
-        val input = readLine()
-        val splitInput = input?.split(" ")
-        if (splitInput != null && splitInput.size > 0) {
-            if (splitInput.size > 1) {
-                if (splitInput[0] == "use" && splitInput.size == 2) {
-                    when (splitInput[1]) {
-                        "potion" -> {
-                            if (player.potions > 0) {
-                                player.potions--
-                                println("\n has usado una pocion, recuperas 30 de hp")
-                                player.hp += 30
-                                if (player.hp > player.maxHp) {
-                                    player.hp = player.maxHp
-                                }
-                                readLine()
-                            } else {
-                                println("\nNo tienes pociones")
-                                readLine()
-                            }
-                        }
+    //AQUI ACABAN LAS FUNCIONES QUE SON TEXTO
 
-                        "bomb" -> {
-                            if (player.bombs > 0) {
-                                player.bombs--
-                                println("\n has usado una bomba, ${enemy.name} ha perdido un 50 de hp")
-                                enemy.hp -= 50
-                                readLine()
-                            } else {
-                                println("\nNo tienes bombas")
-                                readLine()
-                            }
-                        }
+    fun main() {
 
-                        "sword" -> {
-                            if (player.sword == true) {
-                                println("\n has usado una espada, ${enemy.name} ha perdido ${player.dmg} de hp")
-                                enemy.hp -= player.dmg
-                                readLine()
-                            } else {
-                                println("\nNo tienes espada")
-                                readLine()
-                            }
-                        }
+        fun initPlayer() {
+            for (i in 0 until 10) {
+                for (j in 0 until 10) {
+                    if (Map1[i][j] == '@') {
+                        player.posX = i
+                        player.posY = j
                     }
                 }
             }
-        } else if (splitInput != null && splitInput.size == 1 && splitInput[0] == "hit") {
-            println("Has atacado sin arma a ${enemy.name}, y ha perdido ${player.dmg} de hp")
-            enemy.hp -= player.dmg
-            readLine()
-        } else if (splitInput != null && splitInput.size == 1 && splitInput[0] == "inventory") {
-            inventory()
-            readLine()
-        } else {
-            println("esto no es un comando")
-            readLine()
         }
-    }
 
-    fun mapCollision(posX: Int, posY: Int): Boolean {
-        var returnCollision = false
-        val input: MutableList<String> = mutableListOf()
-        var playerInput = ""
-        if (posX < 0 || posX >= 10 || posY < 0 || posY >= 10) {
-            returnCollision = true
-        } else if (Map1[posX][posY] == '#') {
-            returnCollision = true
-        } else if (Map1[posX][posY] == 'L') {
-            println("\nLa puerta esta cerrada, que quieres hacer?\n")
-            readLine()
-            //input.addAll(playerInput?.split(" "))
-            if (input[0] == "use" && input[1] == "key" && player.key == true) {
-                player.key == true
-                println("\n== Usaste 1 llave para abrir la puerta. ==\nLLaves disponibles en el inventario: 0.\n")
-            } else {
-                println("\nUsa la llave para abrir la puerta.\n\n")
-                returnCollision = true
+        fun mapa() {
+            for (auxiliar in 0..10) {
+                for (i in 0..10) {
+                    print("${Map1[auxiliar][i]} ")
+                }
+                println()
             }
+            Map1[player.posX][player.posY] = '.'
         }
-        return returnCollision
-    }
 
-    fun main() {
         initPlayer()
-        var nameConfirm = 0;
-        var gameOver : Boolean = false;
+        var nameConfirm: Int = 0;
+        var gameOver: Boolean = false;
+
+        for (fila in Map1) {
+            for (character in fila) {
+                print(" $character ")
+            }
+            println(" ")
+        }
 
         while (nameConfirm != 1) {
             println("    ////////  ========================")
@@ -376,7 +390,29 @@ fun main(args: Array<String>) {
             }
         }
         while (!gameOver) {
-            while (Map2[player.posX][player.posY] != 'G' && Map2[player.posX][player.posY] != 'T' && Map2[player.posX][player.posY] != 'O'
+
+            while (enemy.hp > 0 && player.hp > 0) {
+                battle()
+            }
+            if (player.hp <= 0) {
+                gameOver = true
+                perdiste()
+                readLine()
+            } else if (enemy.hp <= 0) {
+                Map2[player.posX][player.posY] = '.'
+                if (enemy.name == "BOSS") {
+                        println("\nHas derrotado al ${enemy.name}")
+                        readLine()
+                        clearScreen()
+                        gameOver = true
+            } else {
+                println("\nHas derrotado a ${enemy.name}")
+                readLine()
+                clearScreen()
+            }
+        }
+
+                while (Map2[player.posX][player.posY] != 'G' && Map2[player.posX][player.posY] != 'T' && Map2[player.posX][player.posY] != 'O'
                     && Map2[player.posX][player.posY] != 'J') {
                 if (player.map) {
                     mapa()
@@ -384,6 +420,7 @@ fun main(args: Array<String>) {
                 objetos()
                 print("\nque quieres hacer??")
                 readLine()
+                val input = " "
                 val split_input = input.split(" ")
                 if (split_input.size > 0) {
                     if (split_input.size > 1) {
@@ -488,12 +525,12 @@ fun main(args: Array<String>) {
                                 println("No hay nadie aqui, te quieres matarte? Si es asi, no puedes")
                             } else if (split_input[1] == "bomb" && player.bombs <= 0) {
                                 println("F, no tienes ni una")
-                            } else if (split_input[1] == "sword" && player.sword == true) {
+                            } else if (split_input[1] == "sword" && player.sword) {
                                 println("No hay nadie para matar")
-                            } else if (split_input[1] == "sword" && player.sword == false) {
+                            } else if (split_input[1] == "sword" && !player.sword) {
                                 println("no hiciste nada, porque no tienes espada")
                             }
-                        } else if (split_input[1] == "key" && player.key == true) {
+                        } else if (split_input[1] == "key" && player.key) {
                             if (Map1[player.posX - 1][player.posY] == 'L') {
                                 println("Has abierto una puerta magica")
                                 Map1[player.posX - 1][player.posY] = '.'
@@ -566,26 +603,6 @@ fun main(args: Array<String>) {
                 println("=== ${enemy.name} te desafia! ===")
             }
             readLine()
-
-            while (enemy.hp > 0 && player.hp > 0) {
-                battle()
-            }
-            if (player.hp <= 0) {
-                gameOver = true
-                perdiste()
-                readLine()
-            } else if (enemy.name == "BOSS" && enemy.hp <= 0) {
-                Map2[player.posX][player.posY] = '.'
-                println("\nhas derrotado al ${enemy.name}")
-                readLine()
-                clearScreen()
-                gameOver = true
-            } else if (enemy.name != "BOSS" && enemy.hp <= 0) {
-                Map2[player.posX][player.posY] = '.'
-                println("\nhas derrotado a ${enemy.name}")
-                readLine()
-                clearScreen()
-            }
         }
         if (player.hp > 0) {
             println("\nHas completado el juego! ${player.name}")
@@ -625,4 +642,4 @@ fun main(args: Array<String>) {
             println("\n...")
         }
     }
-}
+
