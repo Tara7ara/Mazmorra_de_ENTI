@@ -1,3 +1,6 @@
+/*
+package NO_PRESENTABLE
+
 class EnemyTransport {
     var name: String = ""
     var hp: Int = 1
@@ -5,3 +8,4 @@ class EnemyTransport {
     var dmg: Int = 1
 
 }
+ */

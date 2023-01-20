@@ -1,18 +1,21 @@
+
+/*package NO_PRESENTABLE
+
 class Map() {
 
-    //idea del mapa
-    /*
-        ##########
-        #@.P....##
-        ##.G#B#..#
-        #...###.##
-        #P..#J#.S#
-        #...#L#.##
-        ##.##.#T.#
-        #PG..O#..#
-        #.T..K.P.#
-        ##########
-    */
+   //idea del mapa
+
+       ##########
+       #@.P....##
+       ##.G#B#..#
+       #...###.##
+       #P..#J#.S#
+       #...#L#.##
+       ##.##.#T.#
+       #PG..O#..#
+       #.T..K.P.#
+       ##########
+   */
 
     /*
 //Itento n1 de imprimir el mapa
@@ -50,5 +53,7 @@ class Map() {
      }
      println("|")
  }
-*/
+
 }
+
+     */

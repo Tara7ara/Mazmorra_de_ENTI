@@ -1,3 +1,7 @@
+/*
+package NO_PRESENTABLE
+
+
 class JefeStats {
     val name: String = "BOSS"
     val max_hp: Int = 150
@@ -10,3 +14,5 @@ class JefeStats {
         var dmg: Int = 20
     }
 }
+
+ */

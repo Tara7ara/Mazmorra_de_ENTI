@@ -1,3 +1,6 @@
+/*
+package NO_PRESENTABLE
+
 class GoblinStats {
     val name: String = "Goblin"
     val max_hp: Int = 30
@@ -11,3 +14,5 @@ class GoblinStats {
         var dmg: Int = 5
     }
 }
+
+ */

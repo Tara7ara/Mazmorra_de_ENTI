@@ -1,3 +1,6 @@
+/*
+package NO_PRESENTABLE
+
 class TrollStats {
     val name: String = "Troll"
     val max_hp: Int = 20
@@ -12,3 +15,6 @@ class TrollStats {
     }
 }
 
+
+
+ */

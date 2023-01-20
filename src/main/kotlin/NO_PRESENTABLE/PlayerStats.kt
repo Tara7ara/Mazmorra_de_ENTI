@@ -1,3 +1,6 @@
+/*
+package NO_PRESENTABLE
+
 class PlayerStats(
         val name: String,
         val playerIcon: Char = '@',
@@ -12,3 +15,5 @@ class PlayerStats(
         var map: Boolean = true,
         var sword: Boolean = false
 )
+
+ */

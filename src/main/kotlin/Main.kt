@@ -1,645 +1,661 @@
+import java.util.*
+import kotlin.system.exitProcess
 
-    fun clearScreen() {
-        for (i in 1..50) {
-            println()
+//La pongo al principio para recordar de que lo tengo que usar
+fun clearScreen() {
+    for (i in 1..25) {
+        println()
+    }
+}
+
+//Un array del mapa para poder ir moificando a tiempo real
+val map1 = arrayOf(
+    charArrayOf('#', '#', '#', '#', '#', '#', '#', '#', '#', '#'),
+    charArrayOf('#', '@', '.', 'P', '.', '.', '.', '.', '#', '#'),
+    charArrayOf('#', '#', '.', 'G', '#', 'B', '#', '.', '.', '#'),
+    charArrayOf('#', '.', '.', '.', '#', '#', '#', '#', '.', '#'),
+    charArrayOf('#', 'P', '.', '.', '#', 'J', '#', '.', 'S', '#'),
+    charArrayOf('#', '.', '.', '.', '#', 'D', '#', '.', '#', '#'),
+    charArrayOf('#', '#', '.', '#', '#', '.', '#', '.', '#', '#'),
+    charArrayOf('#', 'P', 'G', '.', '.', 'O', '#', '.', '.', '#'),
+    charArrayOf('#', '.', 'T', '.', '.', 'K', '.', 'P', '.', '#'),
+    charArrayOf('#', '#', '#', '#', '#', '#', '#', '#', '#', '#')
+)
+//TENGO QUE HACER EL MAPA MAS GRANDE XD
+val bigMap = arrayOf(
+    charArrayOf('#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#'),
+    charArrayOf('#', '@', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'),
+    charArrayOf('#', '#', '#', '#', '#', '.', '.', '.', '.', '.', '.', '#', '.', '#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'),
+    charArrayOf('#', 'P', 'P', '.', '#', '#', '#', '#', '.', '.', '.', '#', 'T', '#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'),
+    charArrayOf('#', 'P', 'P', 'B', '.', '.', '.', '#', '#', '.', '#', '#', 'T', '#', '#', '#', '#', '#', '#', '#', '#', '#', '.', '.', '.', '.', '.', '.', '#'),
+    charArrayOf('#', '#', '#', '#', '#', '.', '.', 'O', '.', '.', '.', '#', 'S', '#', '.', '.', '.', '.', '.', '.', '.', '#', '#', '#', '#', '.', '.', '.', '#'),
+    charArrayOf('#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#', '#', '#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#', '#', '#', '#', 'D', '#'),
+    charArrayOf('#', '.', '.', 'T', '.', '.', '.', '#', '#', '#', '#', '#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'),
+    charArrayOf('#', 'K', '.', '.', '#', '#', '#', '#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'),
+    charArrayOf('#', '#', '#', '#', '#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'),
+    charArrayOf('#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'),
+    charArrayOf('#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'),
+    charArrayOf('#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'),
+    charArrayOf('#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'),
+    charArrayOf('#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'),
+    charArrayOf('#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'),
+    charArrayOf('#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'),
+    charArrayOf('#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'),
+    charArrayOf('#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'),
+    charArrayOf('#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'),
+    charArrayOf('#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'),
+    charArrayOf('#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'),
+    charArrayOf('#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'),
+    charArrayOf('#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'),
+    charArrayOf('#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'),
+    charArrayOf('#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'),
+    charArrayOf('#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'),
+    charArrayOf('#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'),
+    charArrayOf('#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'),
+    charArrayOf('#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#')
+)
+
+//Los stats del Player
+class PlayerStats(
+    var name: String,
+    var posX: Int = 1,
+    var posY: Int = 1,
+    val maxHp: Int = 100,
+    var hp: Int = 100,
+    var dmg: Int = 5,
+    var potion: Int = 0,
+    var bomb: Int = 0,
+    var key: Boolean = false,
+    var sword: Boolean = false
+)
+
+// printMap() es una función que imprime el contenido del arreglo map1.
+fun printMap(){
+    for (fila in map1) {
+        for (character in fila) {
+            print(" $character ")
+        }
+        println(" ")
+    }
+}
+
+//initPlayer() es una función que recorre el arreglo map1 buscando la primera ocurrencia del caracter
+// @, y asigna las coordenadas de esa posición en las propiedades posX y posY de un objeto player.
+fun initPlayer() {
+    for (i in 0 until 10) {
+        for (j in 0 until 10) {
+            if (map1[i][j] == '@') {
+                val player = PlayerStats("player")
+                player.posX = i
+                player.posY = j
+            }
         }
     }
+}
 
-    val Map1 = arrayOf(
-            charArrayOf('#', '#', '#', '#', '#', '#', '#', '#', '#', '#'),
-            charArrayOf('#', '@', '.', 'P', '.', '.', '.', '.', '#', '#'),
-            charArrayOf('#', '#', '.', 'G', '#', 'B', '#', '.', '.', '#'),
-            charArrayOf('#', '.', '.', '.', '#', '#', '#', '#', '.', '#'),
-            charArrayOf('#', 'P', '.', '.', '#', 'J', '#', '.', 'S', '#'),
-            charArrayOf('#', '.', '.', '.', '#', 'L', '#', '.', '#', '#'),
-            charArrayOf('#', '#', '.', '#', '#', '.', '#', '.', '#', '#'),
-            charArrayOf('#', 'P', 'G', '.', '.', 'O', '#', '.', '.', '#'),
-            charArrayOf('#', '.', 'T', '.', '.', 'K', '.', 'P', '.', '#'),
-            charArrayOf('#', '#', '#', '#', '#', '#', '#', '#', '#', '#')
-    )
+//Por si el jugador no tiene ni idea de lo que tiene que hacer
+fun showHelp() {
+    println("Los controles son:")
+    println("\n- go north-->arriba")
+    println("- go east-->derecha")
+    println("- go south-->abajo")
+    println("- go west-->izquierda")
+    println("- use sword/potion/boomb")
+    println("- inventory/help")
+    println("\nDatos general:")
+    println("\nPara usar las pociones, has de estar en un combate")
+    println("Las letras significan algo, si quieres saber lo que significa, descubrelo por tu parte.")
+    println("El '@' significa donde estas tu, si escribes un comando erroneo, en el mapa no se te marcara")
+    println("Si te encuentras en un obejto pero no lo pillas, desaparecera, porque tienes una maladiccion")
+}
 
-    val Map2 = arrayOf(
-            charArrayOf('#', '#', '#', '#', '#', '#', '#', '#', '#', '#'),
-            charArrayOf('#', '@', '.', 'P', '.', '.', '.', '.', '#', '#'),
-            charArrayOf('#', '#', '.', 'G', '#', 'B', '#', '.', '.', '#'),
-            charArrayOf('#', '.', '.', '.', '3', '#', '#', '#', '.', '#'),
-            charArrayOf('#', 'P', '.', '.', '#', 'J', '#', '.', 'S', '#'),
-            charArrayOf('#', '.', '.', '.', '#', 'L', '#', '.', '#', '#'),
-            charArrayOf('#', '#', '.', '#', '#', '.', '#', '.', '#', '#'),
-            charArrayOf('#', 'P', 'G', '.', '.', 'O', '#', '.', '.', '#'),
-            charArrayOf('#', '.', 'T', '.', '.', 'K', '.', 'P', '.', '#'),
-            charArrayOf('#', '#', '#', '#', '#', '#', '#', '#', '#', '#')
-    )
+//ASCII DEL CODIGO
+fun asciiPotion(){
+    println("hay una pocion en el suelo, quieres pillarlo? (yes/no)")
+    println()
+    println(" |    |")
+    println("C|====|")
+    println(" |  º |")
+    println(" '----'")
+    println()
+}
+fun asciiBomb(){
+    println("hay una bomba en el suelo, quieres pillarlo? (yes/no)")
+    println()
+    println("        ,--.!,")
+    println("     __/   -*-")
+    println("   ,d08b.  '|`")
+    println("   0088MM")
+    println("   `9MMP'")
+    println()
+}
+fun asciiSword(){
+    println("hay una espada en el suelo, quieres pillarlo? (yes/no)")
+    println()
+    println("      . ________________")
+    println("O|===| |________________>")
+    println("      · ")
+    println()
+}
+fun asciiKey(){
+    println("hay una llave en el suelo, quieres pillarlo? (yes/no)")
+    println()
+    println("  8 8          ,o.   ")
+    println(" d8o8azzzzzzzzd   b")
+    println("               `o'")
+    println()
+}
+fun asciiDevilBoss(){
+    println("          (                      )")
+    println("          |'    _,--------._    / |")
+    println("          | `.,'            `. /  |")
+    println("          `  '              ,-'   '")
+    println("           '/_         _   (     /")
+    println("          (,-.`.    ,',-.`. `__,'")
+    println("           |'#' ),-','#'`= ,'.` |")
+    println("           `._')  -'.'_,'   ) ))|")
+    println("           /  (_.)'     .   -'//")
+    println("          (  ________    ) )`'' ")
+    println("           ' |V----V||  ' ,    ' ")
+    println("            |`- -- -'   ,'   '  '      _____")
+    println("     ___    |         .'    ' '  `._,-'     `-")
+    println("        `.__,`---^---'       ' ` -'")
+    println("           -.______  ' . /  ______,-")
+    println("                   `.     ,'           ")
+}
+fun asciiCredits() {
+    println("  ,ad8888ba,                                 88 88                               ")
+    println(" d8''    `'8b                                88 ''   ,d                          ")
+    println("d8'                                          88      88                          ")
+    println("88            8b,dPPYba,  ,adPPYba,  ,adPPYb,88 88 MM88MMM ,adPPYba,  ,adPPYba,")
+    println("88            88P'   'Y8 a8P_____88 a8'    `Y88 88   88   a8'     '8a I8[    ''  ")
+    println("Y8,           88         8PP''''''' 8b       88 88   88   8b       d8  `'Y8ba,")
+    println(" Y8a.    .a8P 88         '8b, , aa '8a,   ,d88  88   88,  '8a, , a8'  aa    ]8I ")
+    println("  `'Y8888Y''  88          `'Ybbd8''  `''8bbdP'  88   ''Y8   'YbbdP'   ''YbbdP''")
+    println("\n- Diseño del juego: Taratara")
+    println("- Codigo del juego: Taratara")
+    println("- Arte asciiart.eu y ascii.co.uk/art")
+    println("- Beta testers: Guillem, Jan, Taratara")
+}
+fun asciiWin(){
+    println("8b        d8 ,ad8888ba,   88        88 8b           d8 88888888888    I8,        8        ,8I  ,ad8888ba,   888b      88  ")
+    println(" Y8,    ,8P d8''    `'8b  88        88 `8b         d8' 88             `8b       d8b       d8' d8''    `'8b  8888b     88  ")
+    println("  Y8,  ,8P d8'        `8b 88        88  `8b       d8'  88              '8,     ,8'8,     ,8' d8'        `8b 88 `8b    88  ")
+    println("   '8aa8'  88          88 88        88   `8b     d8'   88aaaaa          Y8     8P Y8     8P  88          88 88  `8b   88  ")
+    println("    `88'   88          88 88        88    `8b   d8'    88'''''          `8b   d8' `8b   d8'  88          88 88   `8b  88  ")
+    println("     88    Y8,        ,8P 88        88     `8b d8'     88                `8a a8'   `8a a8'   Y8,        ,8P 88    `8b 88  ")
+    println("     88     Y8a.    .a8P  Y8a.    .a8P      `888'      88                 `8a8'     `8a8'     Y8a.    .a8P  88     `8888  ")
+    println("     88      `'Y8888Y''    `'Y8888Y''        `8'       88888888888         `8'       `8'       `'Y8888Y''   88      `888  ")
+}
+
+fun gameOver(){
+    println("\nHas completado el juego!")
+    println("                           ,--.")
+    println("                          {    }")
+    println("                          K,   }")
+    println("                         /  `Y`")
+    println("                    _   /   /")
+    println("                   {_'-K.__/")
+    println("                     `/-.__L._")
+    println("                     /  ' /`\\_}")
+    println("                    /  ' /     ")
+    println("            ____   /  ' /")
+    println("     ,-'~~~~    ~~/  ' /_")
+    println("   ,'             ``~~~%%',")
+    println("  (                     %  Y")
+    println(" {                      %% I")
+    println("{      -                 %  `.")
+    println("|       ',                %  )")
+    println("|        |   ,..__      __. Y")
+    println("|    .,_./  Y ' / ^Y   J   )|")
+    println("'           |' /   |   |   ||")
+    println(" '          L_/    . _ (_,.'(")
+    println("  ',   ,      ^^''' / |      )")
+    println("    '_  '          /,L]     /")
+    println("      '-_`-,       ` `   ./`")
+    println("         `-(_            )")
+    println("             ^^'..___,.--`")
+    println("\n  ,ad8888ba, ")
+    println(" d8'      `'''8b")
+    println("d8'     ")
+    println("88            ,adPPYYba, 88,dPYba,,adPYba,   ,adPPYba,     ,adPPYba,  8b       d8  ,adPPYba, 8b,dPPYba,")
+    println("88      88888 ``     `Y8 88P'   '88'    '8a a8P_____88    a8'     '8a `8b     d8' a8P_____88 88P'   'Y8 ")
+    println("Y8,        88 ,adPPPPP88 88      88      88 8PP```````    8b       d8  `8b   d8'  8PP``````` 88 ")
+    println(" Y8a.    .a88 88,    ,88 88      88      88 '8b, , aa     '8a,   ,a8'   `8b,d8'   '8b,   ,aa 88")
+    println("  `'Y88888P'  `'8bbdP'Y8 88      88      88  `'Ybbd8''     `'YbbdP''      '8'      `'Ybbd8'' 88")
+}
+
+fun presentation(){
+    println("    ////////  ========================")
+    println(" .  =======   =Como quieres llamarte?=")
+    println("( )| O   O |  /=======================")
+    println(" # | ____  | / ")
+    println(" #   _| |_")
+    println(" #  (     )")
+    println("(#)==|   |")
+    println(" #   |   |  ")
+    println(" #   =====  ")
+    println(" #   (   ) ")
+    println(" #   || ||")
+    println(".#---'| |`----.")
+    println("`#----' `-----'")
+}
+
+//Falta dar mas feedback al player que si no, no se entera que le estan pegando
+fun combat(enemy: String) {
 
     val player = PlayerStats("player")
-    val orco = OrcoStats
-    val goblin = GoblinStats
-    val troll = TrollStats
-    val jefe = JefeStats
-    val enemy = EnemyTransport()
+    val random = Random()
+    var enemyHp = 0
+    var enemyDmg = 0
+    var maxEnemyHp = 0
 
-    fun inventory() {
-        println("\n=== Estadisticas ===")
+    when (enemy) {
+        "orc" -> {
+            maxEnemyHp = 50
+            enemyHp = 50
+            enemyDmg = 15
+        }
+        "goblin" -> {
+            maxEnemyHp = 30
+            enemyHp = 30
+            enemyDmg = 5
+        }
+        "troll" -> {
+            maxEnemyHp = 20
+            enemyHp = 20
+            enemyDmg = 10
+        }
+        "devilBoss" -> {
+            maxEnemyHp = 150
+            enemyHp = 150
+            enemyDmg = 20
+        }
+    }
+
+    while (enemyHp > 0 && player.hp > 0) {
+        println("\n=== Combat ===")
+        println("Enemigo: $enemy - HP [$enemyHp / $maxEnemyHp] - DMG [$enemyDmg]")
         println("${player.name}, Coordenadas: [ ${player.posX}, ${player.posY} ]")
-        println("HP - [ ${player.maxHp} / ${player.hp} ]")
-        println("DMG - ${player.dmg}")
-        println("=== Inventario ===")
-        if (player.potions > 1) {
-            println("${player.potions} potions")
-        } else if (player.potions == 1) {
-            println("${player.potions} potion")
-        }
-        if (player.bombs > 1) {
-            println("${player.bombs} bombs")
-        } else if (player.bombs == 1) {
-            println("${player.bombs} bomb")
-        }
-        if (player.map) {
-            println("Map")
-        }
-        if (player.key) {
-            println("Key")
-        }
+        println("HP - [ ${player.hp} / ${player.maxHp} ]")
+        println("DMG - [ ${player.dmg}]")
+        println("=== Acciones ===")
+        println("- Hit")
         if (player.sword) {
-            println("Sword")
+            println("- Use Sword")
         }
-        println()
-    }
-
-    fun enemySelection() {
-        when (Map2[player.posX][player.posY]) {
-            'G' -> {
-                enemy.name = GoblinStats.name
-                enemy.dmg = GoblinStats.dmg
-                enemy.max_hp = GoblinStats.max_hp
-                enemy.hp = GoblinStats.hp
-            }
-
-            'O' -> {
-                enemy.name = OrcoStats.name
-                enemy.dmg = OrcoStats.dmg
-                enemy.max_hp = OrcoStats.max_hp
-                enemy.hp = OrcoStats.hp
-            }
-
-            'T' -> {
-                enemy.name = TrollStats.name
-                enemy.dmg = TrollStats.dmg
-                enemy.max_hp = TrollStats.max_hp
-                enemy.hp = TrollStats.hp
-            }
-
-            'J' -> {
-                enemy.name = JefeStats.name
-                enemy.dmg = JefeStats.dmg
-                enemy.max_hp = JefeStats.max_hp
-                enemy.hp = JefeStats.hp
-            }
+        if (player.potion > 0) {
+            println("- Use potion")
         }
-    }
+        if (player.bomb > 0) {
+            println("- Use bomb")
+        }
 
-    fun battle() {
-        println("${enemy.name} ha atacado a ${player.name}, ${player.name} ha perdido ${enemy.dmg}HP")
-        player.hp -= enemy.dmg
-        println("\n[${player.name}] tiene [${player.hp}/${player.maxHp}]HP")
-        println("\n[${enemy.name}] tiene [${enemy.hp}/${enemy.max_hp}]HP")
-        println("\n¿Qué quieres hacer? Si no sabes qué hacer, escribe help")
-        val input = readLine()!!
-        val splitInput = input.split(" ")
-        if (splitInput.isNotEmpty()) {
-            if (splitInput.size > 1) {
-                if (splitInput[0] == "use" && splitInput.size == 2) {
-                    if (splitInput[1] == "potion") {
-                        if (player.potions > 0) {
-                            player.potions--
-                            println("\nHas usado una poción, recuperas 30 de hp")
-                            player.hp += 30
-                            if (player.hp > player.maxHp) {
-                                player.hp = player.maxHp
-                            }
-                            println("Presione Enter para continuar...")
-                            readLine()
-                        }
-                        else {
-                            println("\nNo tienes pociones")
-                            println("Presione Enter para continuar...")
-                            readLine()
-                        }
-                    } else if (splitInput[1] == "bomb") {
-                        if (player.bombs > 0) {
-                            player.bombs--
-                            println("\nHas usado una bomba, ${enemy.name} ha perdido 50 de hp")
-                            enemy.hp -= 50
-                            println("Presione Enter para continuar...")
-                            readLine()
-                        }
-                        else {
-                            println("\nNo tienes bombas")
-                            println("Presione Enter para continuar...")
-                            readLine()
-                        }
-                    } else if (splitInput[1] == "sword") {
-                        if (player.sword == true) {
-                            println("\nHas usado una espada, ${enemy.name} ha perdido ${player.dmg} de hp")
-                            enemy.hp -= player.dmg
-                            println("Presione Enter para continuar...")
-                            readLine()
-                        } else {
-                            println("\nNo tienes espada")
-                            println("Presione Enter para continuar...")
-                            readLine()
-                        }
-                    }
+        when (readLine()) {
+
+            "hit" -> {
+                enemyHp -= player.dmg
+                player.hp -= enemyDmg
+            }
+
+            "use sword" -> {
+                if (player.sword) {
+                    enemyHp -= player.dmg + 25
+                    player.hp -= enemyDmg
+                } else {
+                    println("No tienes espada")
                 }
-            } else if (splitInput[0] == "hit") {
-                println("Has atacado sin arma a ${enemy.name}, y ha perdido ${player.dmg} de hp")
-                enemy.hp -= player.dmg
-                println("Presione Enter para continuar...")
-                readLine()
-            } else if (splitInput[0] == "inventory") {
-                inventory()
-                println("Presione Enter para continuar...")
-                readLine()
             }
-            else {
-                println("Este no es un comando")
-                println("Presione Enter para continuar...")
-                readLine()
-            }
-        }
-    }
 
-    fun mapCollision(posX: Int, posY: Int): Boolean {
-        var returnCollision = false
-        val input: MutableList<String> = mutableListOf()
-        var playerInput = ""
-        if (posX < 0 || posX >= 10 || posY < 0 || posY >= 10) {
-            returnCollision = true
-        } else if (Map1[posX][posY] == '#') {
-            returnCollision = true
-        } else if (Map1[posX][posY] == 'L') {
-            println("\nLa puerta esta cerrada, que quieres hacer?\n")
-            readLine()
-            val inputLocal = readLine()
-            if (inputLocal != null) {
-                val splitInput = inputLocal.split(" ")
-                if (splitInput.size >= 2) {
-                    if (splitInput[0] == "use" && splitInput[1] == "key" && player.key) {
-                        println("\n== Usaste 1 llave para abrir la puerta. ==\nLLaves disponibles en el inventario: 0.\n")
-                        player.key = false
+            "use potion"-> {
+                if (player.potion > 0) {
+                    if (player.hp + 30 > player.maxHp) {
+                        player.hp = player.maxHp
                     } else {
-                        println("\nUsa la llave para abrir la puerta.\n\n")
-                        returnCollision = true
+                        player.hp += 30
                     }
+                    player.potion--
+                } else {
+                    println("No tienes pociones")
                 }
             }
-        }
-        return returnCollision
-    }
 
-  //LAS SIGUIENTES FUNCIONES SON TEXTO
-
-    fun objetos() {
-        when (Map2[player.posX][player.posY]) {
-            'P' -> {
-                println("\nhay una pocion en el suelo")
-                println(" |    |")
-                println("C|====| ")
-                println(" |  º |")
-                println(" '----'")
-            }
-
-            'B' -> {
-                println("\nhay una bomba en el suelo")
-                println("        ,--.!,")
-                println("     __/   -*-")
-                println("   ,d08b.  '|`")
-                println("   0088MM")
-                println("   `9MMP'")
-            }
-
-            'K' -> {
-                println("\nhay una llave en el suelo")
-                println("  8 8          ,o.   ")
-                println(" d8o8azzzzzzzzd   b")
-                println("               `o'")
-            }
-
-            'S' -> {
-                println("\nhay una espada en el suelo")
-                println("      . ________________")
-                println("O|===| |________________>")
-                println("      · ")
-            }
-
-            'E' -> {
-                println("\nAcabas de encontrar un eggstereg")
-                println("No hace nada, pero es divertido que me encuentres :D")
-                println("~Si quieres ser el mas fuerte, deberas elegir un buen nombre~")
-                println("                                                   ~Taratara~")
-            }
-        }
-    }
-
-    fun creditos() {
-        println("  ,ad8888ba,                                 88 88                               ")
-        println(" d8''    `'8b                                88 ''   ,d                          ")
-        println("d8'                                          88      88                          ")
-        println("88            8b,dPPYba,  ,adPPYba,  ,adPPYb,88 88 MM88MMM ,adPPYba,  ,adPPYba,")
-        println("88            88P'   'Y8 a8P_____88 a8'    `Y88 88   88   a8'     '8a I8[    ''  ")
-        println("Y8,           88         8PP''''''' 8b       88 88   88   8b       d8  `'Y8ba,")
-        println(" Y8a.    .a8P 88         '8b, , aa '8a,   ,d88  88   88,  '8a, , a8'  aa    ]8I ")
-        println("  `'Y8888Y''  88          `'Ybbd8''  `''8bbdP'  88   ''Y8   'YbbdP'   ''YbbdP''")
-        println("\n- Diseño del juego: Taratara")
-        println("- Codigo del juego: Taratara")
-        println("- Arte asciiart.eu y ascii.co.uk/art")
-        println("- Beta testers: Guillem, Jan, Taratara")
-        println("===============================================================")
-        println("=Si quieres volver a jugar, hay nombres reservados, que cambia=")
-        println("=la experiencia, como (Ciego) y (SpeedRuner).                 =")
-        println("===============================================================")
-    }
-
-    fun perdiste() {
-        println("     .... NO! ...                  ... MNO! ...")
-        println("   ..... MNO!! ...................... MNNOO! ...")
-        println(" ..... MMNO! ......................... MNNOO!! .")
-        println(".... MNOONNOO!   MMMMMMMMMMPPPOII!   MNNO!!!! .")
-        println(" ... !O! NNO! MMMMMMMMMMMMMPPPOOOII!! NO! ....")
-        println("    ...... ! MMMMMMMMMMMMMPPPPOOOOIII! ! ...")
-        println("   ........ MMMMMMMMMMMMPPPPPOOOOOOII!! .....")
-        println("   ........ MMMMMOOOOOOPPPPPPPPOOOOMII! ...  ")
-        println("    ....... MMMMM..    OPPMMP    .,OMI! ....")
-        println("     ...... MMMM::   o.,OPMP,.o   ::I!! ...")
-        println("         .... NNM:::.,,OOPM!P,.::::!! ....")
-        println("          .. MMNNNNNOOOOPMO!!IIPPO!!O! .....")
-        println("         ... MMMMMNNNNOO:!!:!!IPPPPOO! ....")
-        println("           .. MMMMMNNOOMMNNIIIPPPOO!! ......")
-        println("          ...... MMMONNMMNNNIIIOO!..........")
-        println("       ....... MN MOMMMNNNIIIIIO! OO ..........")
-        println("    ......... MNO! IiiiiiiiiiiiI OOOO ...........")
-        println("  ...... NNN.MNO! . O!!!!!!!!!O . OONO NO! ........")
-        println("   .... MNNNNNO! ...OOOOOOOOOOO .  MMNNON!........")
-        println("   ...... MNNNNO! .. PPPPPPPPP .. MMNON!........")
-        println("      ...... OO! ................. ON! .......")
-        println("         ................................")
-        println()
-        println("88888888ba                                88 88                               ")
-        println("88      '8b                               88 ''                               ")
-        println("88      ,8P                               88                88                ")
-        println("88aaaaaa8P' ,adPPYba, 8b,dPPYba,  ,adPPYb,88 88 ,adPPYba, MM88MMM ,adPPYba,   ")
-        println("88'''''''  a8P_____88 88P'   'Y8 a8''    `Y88 88 I8[    ''  88   a8P_____88   ")
-        println("88         8PP''''''' 88         8b       88 88  `'Y8ba,    88   8PP'''''''   ")
-        println("88         '8b, , aa  88         '8a,   ,d88 88 aa    ]8I   88,  '8b, , aa    ")
-        println("88          `'Ybbd8'' 88          `'8bbdP'Y8 88 `'YbbdP''   'Y888 `'Ybbd8''   ")
-        println("\n\n\n")
-        creditos()
-    }
-
-    fun help() {
-        println("Los controles son:")
-        println("\n- go north-->arriba")
-        println("- go east-->derecha")
-        println("- go south-->abajo")
-        println("- go west-->izquierda")
-        println("- pick sword/potion/boomb")
-        println("- use sword/potion/boomb")
-        println("- hit")
-        println("- inventory/help")
-        println("\nDatos general:")
-        println("\nPara usar las pociones, has de estar en un combate")
-        println("Las letras significan algo, si quieres saber lo que significa, descubrelo por tu parte.")
-        println("El '@' significa donde estas tu, si escribes un comando erroneo, en el mapa no se te marcara")
-        println("En esta versión hay un error, cuando estés en la puerta, ve con calma con los enter, para que no se te cierre el programa")
-    }
-
-    //AQUI ACABAN LAS FUNCIONES QUE SON TEXTO
-
-    fun main() {
-
-        fun initPlayer() {
-            for (i in 0 until 10) {
-                for (j in 0 until 10) {
-                    if (Map1[i][j] == '@') {
-                        player.posX = i
-                        player.posY = j
-                    }
+            "use bomb" -> {
+                if (player.bomb > 0) {
+                    val bombDmg = random.nextInt(6)
+                    enemyHp -= 50
+                    player.hp -= bombDmg
+                    player.bomb--
+                } else {
+                    println("No tienes bombas")
                 }
             }
         }
 
-        fun mapa() {
-            for (auxiliar in 0..10) {
-                for (i in 0..10) {
-                    print("${Map1[auxiliar][i]} ")
+        if (enemy == "devilBoss" && enemyHp <= 0) {
+            clearScreen()
+            asciiWin()
+            Thread.sleep(3000)
+            clearScreen()
+            gameOver()
+            Thread.sleep(3000)
+            clearScreen()
+            asciiCredits()
+            exitProcess(0)
+        }
+
+        if (player.hp <= 0) {
+            println("Has perdido el combate")
+            clearScreen()
+            gameOver()
+            Thread.sleep(3000)
+            clearScreen()
+            asciiCredits()
+            exitProcess(0)
+        } else if (enemyHp <= 0) {
+            println("Has ganado el combate")
+            return
+        }
+    }
+}
+
+fun main() {
+
+    var nameConfirm = 0
+    val player = PlayerStats("player")
+    while (nameConfirm != 1) {
+        presentation()
+        val name1 = readLine()
+        if (name1 != null) {
+            player.name = name1
+        }
+        nameConfirm = 1
+    }
+    clearScreen()
+
+    println("Tu nombre es: ${player.name} \n\n")
+    println("Este es el mapa, si no entiendes nada o lo que tienes que hacer, escribe help")
+    printMap()
+
+    initPlayer()
+    while (true) {
+        //println("Ingresa la dirección en la que quieres moverte (north, south, east, west)")
+        println("Que quieres hacer? [go (north, south, east, west)]")
+        when (readLine()) {
+            "go north" -> {
+                if (player.posX > 0 && map1[player.posX - 1][player.posY] != '#' && map1[player.posX - 1][player.posY] != 'D') {
+                    clearScreen()
+                    map1[player.posX][player.posY] = '.'
+                    player.posX--
+
+                    if (map1[player.posX][player.posY] == 'P') {
+                        asciiPotion()
+                        val response = readLine()
+                        if (response == "yes") {
+                            player.potion++
+                        }
+                    }else if (map1[player.posX][player.posY] == 'B') {
+                        asciiBomb()
+                        val response = readLine()
+                        if (response == "yes") {
+                            player.bomb++
+                        }
+                    }else if (map1[player.posX][player.posY] == 'S') {
+                        asciiSword()
+                        val response = readLine()
+                        if (response == "yes") {
+                            player.sword = true
+                        }
+                    }else if (map1[player.posX][player.posY] == 'K') {
+                        asciiKey()
+                        val response = readLine()
+                        if (response == "yes") {
+                            player.key = true
+                        }
+                    }else if (map1[player.posX][player.posY] == 'T') {
+                        combat("troll")
+                    }else if (map1[player.posX][player.posY] == 'G'){
+                        combat("goblin")
+                    }else if (map1[player.posX][player.posY] == 'O'){
+                        combat("Orco")
+                    }else if (map1[player.posX][player.posY] == 'J'){
+                        asciiDevilBoss()
+                        Thread.sleep(3000)
+                        combat("devilBoss")
+                    }else {
+                        map1[player.posX][player.posY] = '@'
+                    }
+                    map1[player.posX][player.posY] = '@'
+                    printMap()
+                }
+            }
+
+            "go south" -> {
+                if (player.posX < map1.size - 1 && map1[player.posX + 1][player.posY] != '#' && map1[player.posX + 1][player.posY] != 'D') {
+                    clearScreen()
+                    map1[player.posX][player.posY] = '.'
+                    player.posX++
+
+                    if (map1[player.posX][player.posY] == 'P') {
+                        asciiPotion()
+                        val response = readLine()
+                        if (response == "yes") {
+                            player.potion++
+                        }
+                    }else if (map1[player.posX][player.posY] == 'B') {
+                        asciiBomb()
+                        val response = readLine()
+                        if (response == "yes") {
+                            player.bomb++
+                        }
+                    }else if (map1[player.posX][player.posY] == 'S') {
+                        asciiSword()
+                        val response = readLine()
+                        if (response == "yes") {
+                            player.sword = true
+                        }
+                    }else if (map1[player.posX][player.posY] == 'K') {
+                        asciiKey()
+                        val response = readLine()
+                        if (response == "yes") {
+                            player.key = true
+                        }
+                    }else if (map1[player.posX][player.posY] == 'T') {
+                        combat("troll")
+                    }else if (map1[player.posX][player.posY] == 'G'){
+                        combat("goblin")
+                    }else if (map1[player.posX][player.posY] == 'O'){
+                        combat("Orco")
+                    }else if (map1[player.posX][player.posY] == 'J'){
+                        asciiDevilBoss()
+                        Thread.sleep(3000)
+                        combat("devilBoss")
+                    }else {
+                        map1[player.posX][player.posY] = '@'
+                    }
+                    map1[player.posX][player.posY] = '@'
+                    printMap()
+                }
+            }
+
+            "go east" -> {
+                if (player.posY < map1[0].size - 1 && map1[player.posX][player.posY + 1] != '#'&& map1[player.posX][player.posY + 1] != 'D') {
+                    clearScreen()
+                    map1[player.posX][player.posY] = '.'
+                    player.posY++
+
+                    if (map1[player.posX][player.posY] == 'P') {
+                        asciiPotion()
+                        val response = readLine()
+                        if (response == "yes") {
+                            player.potion++
+                        }
+                    }else if (map1[player.posX][player.posY] == 'B') {
+                        asciiBomb()
+                        val response = readLine()
+                        if (response == "yes") {
+                            player.bomb++
+                        }
+                    }else if (map1[player.posX][player.posY] == 'S') {
+                        asciiSword()
+                        val response = readLine()
+                        if (response == "yes") {
+                            player.sword = true
+                        }
+                    }else if (map1[player.posX][player.posY] == 'K') {
+                        asciiKey()
+                        val response = readLine()
+                        if (response == "yes") {
+                            player.key = true
+                        }
+                    }else if (map1[player.posX][player.posY] == 'T') {
+                        combat("troll")
+                    }else if (map1[player.posX][player.posY] == 'G'){
+                        combat("goblin")
+                    }else if (map1[player.posX][player.posY] == 'O'){
+                        combat("Orco")
+                    }else if (map1[player.posX][player.posY] == 'J'){
+                        asciiDevilBoss()
+                        Thread.sleep(3000)
+                        combat("devilBoss")
+                    }else {
+                        map1[player.posX][player.posY] = '@'
+                    }
+                    map1[player.posX][player.posY] = '@'
+                    printMap()
+                }
+            }
+
+            "go west" -> {
+                if (player.posY > 0 && map1[player.posX][player.posY - 1] != '#' && map1[player.posX][player.posY - 1] != 'D') {
+                    clearScreen()
+                    map1[player.posX][player.posY] = '.'
+                    player.posY--
+
+                    if (map1[player.posX][player.posY] == 'P') {
+                        asciiPotion()
+                        val response = readLine()
+                        if (response == "yes") {
+                            player.potion++
+                        }
+                    }else if (map1[player.posX][player.posY] == 'B') {
+                        asciiBomb()
+                        val response = readLine()
+                        if (response == "yes") {
+                            player.bomb++
+                        }
+                    }else if (map1[player.posX][player.posY] == 'S') {
+                        asciiSword()
+                        val response = readLine()
+                        if (response == "yes") {
+                            player.sword = true
+                        }
+                    }else if (map1[player.posX][player.posY] == 'K') {
+                        asciiKey()
+                        val response = readLine()
+                        if (response == "yes") {
+                            player.key = true
+                        }
+                    }else if (map1[player.posX][player.posY] == 'T') {
+                        combat("troll")
+                    }else if (map1[player.posX][player.posY] == 'G'){
+                        combat("goblin")
+                    }else if (map1[player.posX][player.posY] == 'O'){
+                        combat("Orco")
+                    }else if (map1[player.posX][player.posY] == 'J'){
+                        asciiDevilBoss()
+                        Thread.sleep(3000)
+                        combat("devilBoss")
+                    }
+                    else {
+                        map1[player.posX][player.posY] = '@'
+                    }
+                    map1[player.posX][player.posY] = '@'
+                    printMap()
+                }
+            }
+
+            "use potion" -> {
+                if (player.potion > 0){
+                    if (player.hp == player.maxHp) {
+                        println("Ya tienes la vida máxima, no necesitas consumir una poción.")
+                    } else {
+                        clearScreen()
+                        if (player.hp + 30 > player.maxHp) {
+                            println("Te has curado hasta el maximo de vida")
+                            player.hp = player.maxHp
+                        } else {
+                            println("Te has curado 30 de vida")
+                            player.hp += 30
+                        }
+                        player.potion--
+                        printMap()
+                    }
+                } else {
+                    println("No tienes pociones")
+                }
+            }
+
+            "use key" -> {
+                if (player.key){
+                    player.key = false
+                    for (i in map1.indices) {
+                        for (j in 0 until map1[i].size) {
+                            if (map1[i][j] == 'D') {
+                                map1[i][j] = '.'
+                            }
+                        }
+                    }
+                    println("La llave se ha usado, LA PUERTA HA DESAPARECIDO, AHORA EN EL MAPA NO HAY NINGUNA D (door)")
+                    printMap()
+                } else {
+                    println("No tienes la llave")
+                }
+            }
+
+            "help" -> {
+                clearScreen()
+
+                showHelp()
+            }
+
+            "inventory" -> {
+                clearScreen()
+
+                println("\n=== Estadisticas ===")
+                println("Name: ${player.name}, Coordenadas: [ ${player.posX}, ${player.posY} ]")
+                println("HP - [ ${player.hp} / ${player.maxHp} ]")
+                val damage = if(player.sword){
+                    player.dmg + 25
+                }else{
+                    player.dmg
+                }
+                println("DMG - $damage")
+                println("=== Inventario ===")
+                println("Tienes ${player.potion} pociones")
+                println("Tienes ${player.bomb} bombas")
+                if (player.sword){
+                    println("Tienes la Espada, que te suma tu dmg +25")
+                }
+                if (player.key){
+                    println("Tienes la llave")
                 }
                 println()
+                printMap()
             }
-            Map1[player.posX][player.posY] = '.'
-        }
 
-        initPlayer()
-        var nameConfirm: Int = 0;
-        var gameOver: Boolean = false;
+            "hack" -> {
+                //Comando para hacer pruebas
+                player.hp --
 
-        for (fila in Map1) {
-            for (character in fila) {
-                print(" $character ")
+                //clearScreen()
+                //gameOver()
+                //Thread.sleep(3000)
+                //clearScreen()
+                //creditos()
+                //exitProcess(0)
+                //battle(player, enemyOrco)
             }
-            println(" ")
-        }
-
-        while (nameConfirm != 1) {
-            println("    ////////  ========================")
-            println(" .  =======   =Como quieres llamarte?=")
-            println("( )| O   O |  /=======================")
-            println(" # | ____  | / ")
-            println(" #   _| |_")
-            println(" #  (     )")
-            println("(#)==|   |")
-            println(" #   |   |  ")
-            println(" #   =====  ")
-            println(" #   (   ) ")
-            println(" #   || ||")
-            println(".#---'| |`----.")
-            println("`#----' `-----'")
-            readLine()
-            player.name
-            nameConfirm = 1
-        }
-        println("\n")
-
-        when (player.name) {
-            "Saitama" -> {
-                player.hp = 1000
-                player.map = true
-                player.dmg = 1000
-            }
-            "SpeedRuner" -> {
-                player.hp = 55
-                player.map = true
-                player.key = true
-                player.potions = 2
-                player.bombs = 1
-                player.dmg = 10
-            }
-            "Ciego" -> {
-                player.hp = 100
-                player.map = false
-                player.dmg = 20
-            }
-        }
-        while (!gameOver) {
-
-            while (enemy.hp > 0 && player.hp > 0) {
-                battle()
-            }
-            if (player.hp <= 0) {
-                gameOver = true
-                perdiste()
-                readLine()
-            } else if (enemy.hp <= 0) {
-                Map2[player.posX][player.posY] = '.'
-                if (enemy.name == "BOSS") {
-                        println("\nHas derrotado al ${enemy.name}")
-                        readLine()
-                        clearScreen()
-                        gameOver = true
-            } else {
-                println("\nHas derrotado a ${enemy.name}")
-                readLine()
-                clearScreen()
-            }
-        }
-
-                while (Map2[player.posX][player.posY] != 'G' && Map2[player.posX][player.posY] != 'T' && Map2[player.posX][player.posY] != 'O'
-                    && Map2[player.posX][player.posY] != 'J') {
-                if (player.map) {
-                    mapa()
-                }
-                objetos()
-                print("\nque quieres hacer??")
-                readLine()
-                val input = " "
-                val split_input = input.split(" ")
-                if (split_input.size > 0) {
-                    if (split_input.size > 1) {
-                        if (split_input[0] == "go" && split_input.size == 2) {
-                            if (split_input[1] == "north") {
-                                if (Map1[player.posX - 1][player.posY] != '#' && player.posX - 1 >= 0 && !mapCollision(player.posX - 1, player.posY)) {
-                                    Map2[player.posX][player.posY] = Map2[player.posX][player.posY]
-                                    player.posX--
-                                    println("${player.name} has ido al norte")
-                                    Map1[player.posX][player.posY] = '@'
-
-                                } else {
-                                    println("\nNo puedes acceder a esta zona")
-                                    readLine()
-                                }
-                            } else if (split_input[1] == "south") {
-                                if (Map1[player.posX + 1][player.posY] != '#' && player.posX + 1 <= 9 && !mapCollision(player.posX + 1, player.posY)) {
-                                    Map1[player.posX][player.posY] = Map2[player.posX][player.posY]
-                                    player.posX++
-                                    println("${player.name} has ido al sur")
-                                    Map2[player.posX][player.posY] = '@'
-                                    readLine()
-                                } else {
-                                    println("\nNo puedes acceder a esta zona")
-                                    readLine()
-                                }
-                            } else if (split_input[1] == "east") {
-                                if (Map2[player.posX][player.posY + 1] != '#' && player.posY + 1 <= 9 && !mapCollision(player.posX, player.posY + 1)) {
-                                    Map2[player.posX][player.posY] = Map2[player.posX][player.posY]
-                                    player.posY++
-                                    println("${player.name} has ido al este")
-                                    Map2[player.posX][player.posY] = '@'
-                                    readLine()
-                                } else {
-                                    println("\nNo puedes acceder a esta zona")
-                                    readLine()
-                                }
-                            } else if (split_input[1] == "west") {
-                                if (Map1[player.posX][player.posY - 1] != '#' && !mapCollision(player.posX, player.posY - 1)) {
-                                    Map1[player.posX][player.posY] = Map2[player.posX][player.posY]
-                                    player.posY--
-                                    println("${player.name} ha ido al oeste")
-                                    Map1[player.posX][player.posY] = '@'
-                                    readLine()
-                                } else {
-                                    println("\nNo puedes acceder a esta zona")
-                                    readLine()
-                                }
-                            } else {
-                                println("¿A dónde quieres ir?")
-                                readLine()
-                            }
-                        } else if (split_input[0] == "pick" && split_input.size == 2) {
-                            if (split_input[1] == "potion" && Map2[player.posX][player.posY] == 'P') {
-                                player.potions++
-                                Map2[player.posX][player.posY] = '.'
-                                println("${player.name} ha recogido una poción")
-                                readLine()
-                            } else if (split_input[1] == "potion" && Map2[player.posX][player.posY] != 'P') {
-                                println("No hay ninguna poción en este cuadrante")
-                                readLine()
-                            }
-                            if (split_input[1] == "bomb" && Map2[player.posX][player.posY] == 'B') {
-                                player.bombs++
-                                Map2[player.posX][player.posY] = '.'
-                                println("${player.name} ha recogido una bomba")
-                                readLine()
-                            } else if (split_input[1] == "bomb" && Map2[player.posX][player.posY] != 'B') {
-                                println("No hay ninguna bomba en este cuadrante")
-                                readLine()
-                            }
-                            if (split_input[1] == "sword" && Map2[player.posX][player.posY] == 'S') {
-                                Map2[player.posX][player.posY] = '.'
-                                println("${player.name} ha recogido una espada, tu daño base ha sumado 15 dmg")
-                                player.dmg = player.dmg + 15
-                                player.sword = true
-                                readLine()
-                            } else if (split_input[1] == "sword" && Map2[player.posX][player.posY] != 'S') {
-                                println("La espada no está en este cuadrante")
-                                readLine()
-                            }
-                            if (split_input[1] == "key" && Map2[player.posX][player.posY] == 'K') {
-                                Map2[player.posX][player.posY] = '.'
-                                println("${player.name} ha recogido una llave")
-                                player.key = true
-                                readLine()
-                            } else if (split_input[1] == "key" && Map2[player.posX][player.posY] != 'K') {
-                                println("En este cuadrante no hay ninguna llave")
-                                readLine()
-                            }
-                        } else if (split_input[0] == "use" && split_input.size == 2) {
-                            if (split_input[1] == "potion" && player.potions > 0) {
-                                player.potions--
-                                player.hp += 30
-                                if (player.hp > player.maxHp) {
-                                    player.hp = player.maxHp
-                                }
-                                println("${player.name} ha tomado una pocion, que te cura un 30 de hp")
-                            } else if (split_input[1] == "potion" && player.potions <= 0) {
-                                println("No puedes tomar aire")
-                            } else if (split_input[1] == "bomb" && player.bombs > 0) {
-                                println("No hay nadie aqui, te quieres matarte? Si es asi, no puedes")
-                            } else if (split_input[1] == "bomb" && player.bombs <= 0) {
-                                println("F, no tienes ni una")
-                            } else if (split_input[1] == "sword" && player.sword) {
-                                println("No hay nadie para matar")
-                            } else if (split_input[1] == "sword" && !player.sword) {
-                                println("no hiciste nada, porque no tienes espada")
-                            }
-                        } else if (split_input[1] == "key" && player.key) {
-                            if (Map1[player.posX - 1][player.posY] == 'L') {
-                                println("Has abierto una puerta magica")
-                                Map1[player.posX - 1][player.posY] = '.'
-                                Map2[player.posX - 1][player.posY] = '.'
-                                player.key = false
-                            } else if (Map1[player.posX + 1][player.posY] == 'L') {
-                                println("Has abierto una puerta magica")
-                                Map1[player.posX + 1][player.posY] = '.'
-                                Map2[player.posX + 1][player.posY] = '.'
-                                player.key = false
-                            } else if (Map1[player.posX][player.posY + 1] == 'L') {
-                                println("Has abierto una puerta magica")
-                                Map1[player.posX][player.posY + 1] = '.'
-                                Map2[player.posX][player.posY + 1] = '.'
-                                player.key = false
-                            } else if (Map1[player.posX][player.posY - 1] == 'L') {
-                                println("Has abierto una puerta magica")
-                                Map1[player.posX][player.posY - 1] = '.'
-                                Map2[player.posX][player.posY - 1] = '.'
-                                player.key = false
-                            } else {
-                                println("No hay nada en lo que usar una llave...")
-                            }
-                        } else if (split_input[1] == "key" && player.key == false) {
-                            println("No tienes ninguna llave...")
-                        } else {
-                            println("Que quieres usar?")
-                        }
-
-                    } else {
-                        println("esto no es un comando")
-                        readLine()
-                    }
-                } else if (split_input.size == 1 && split_input[0] == "help") {
-                    help()
-                    readLine()
-                } else if (split_input.size == 1 && split_input[0] == "inventory") {
-                    inventory()
-                    readLine()
-                } else {
-                    println("esto no es un comando")
-                    readLine()
-                }
-            } //aqui deberia de haver un else
-                println("escribe un comando")
-                readLine()
-            }
-        if (Map2[player.posX][player.posY] == 'G' || Map2[player.posX][player.posY] == 'T'
-                || Map2[player.posX][player.posY] == 'O' || Map2[player.posX][player.posY] == 'J') {
-            enemySelection()
-            if (Map2[player.posX][player.posY] == 'J') {
-                println("=== ${enemy.name} te desafia! ===")
-                println("          (                      )")
-                println("          |'    _,--------._    / |")
-                println("          | `.,'            `. /  |")
-                println("          `  '              ,-'   '")
-                println("           '/_         _   (     /")
-                println("          (,-.`.    ,',-.`. `__,'")
-                println("           |'#' ),-','#'`= ,'.` |")
-                println("           `._')  -'.'_,'   ) ))|")
-                println("           /  (_.)'     .   -'//")
-                println("          (  ________    ) )`'' ")
-                println("           ' |V----V||  ' ,    ' ")
-                println("            |`- -- -'   ,'   '  '      _____")
-                println("     ___    |         .'    ' '  `._,-'     `-")
-                println("        `.__,`---^---'       ' ` -'")
-                println("           -.______  ' . /  ______,-")
-                println("                   `.     ,'           ")
-            } else {
-                println("=== ${enemy.name} te desafia! ===")
-            }
-            readLine()
-        }
-        if (player.hp > 0) {
-            println("\nHas completado el juego! ${player.name}")
-            println("                           ,--.")
-            println("                          {    }")
-            println("                          K,   }")
-            println("                         /  `Y`")
-            println("                    _   /   /")
-            println("                   {_'-K.__/")
-            println("                     `/-.__L._")
-            println("                     /  ' /`\\_}")
-            println("                    /  ' /     ")
-            println("            ____   /  ' /")
-            println("     ,-'~~~~    ~~/  ' /_")
-            println("   ,'             ``~~~%%',")
-            println("  (                     %  Y")
-            println(" {                      %% I")
-            println("{      -                 %  `.")
-            println("|       ',                %  )")
-            println("|        |   ,..__      __. Y")
-            println("|    .,_./  Y ' / ^Y   J   )|")
-            println("'           |' /   |   |   ||")
-            println(" '          L_/    . _ (_,.'(")
-            println("  ',   ,      ^^''' / |      )")
-            println("    '_  '          /,L]     /")
-            println("      '-_`-,       ` `   ./`")
-            println("         `-(_            )")
-            println("             ^^'..___,.--`")
-            println("\n  ,ad8888ba, ")
-            println(" d8'      `'''8b")
-            println("d8'     ")
-            println("88            ,adPPYYba, 88,dPYba,,adPYba,   ,adPPYba,     ,adPPYba,  8b       d8  ,adPPYba, 8b,dPPYba,")
-            println("88      88888 ``     `Y8 88P'   '88'    '8a a8P_____88    a8'     '8a `8b     d8' a8P_____88 88P'   'Y8 ")
-            println("Y8,        88 ,adPPPPP88 88      88      88 8PP```````    8b       d8  `8b   d8'  8PP``````` 88 ")
-            println(" Y8a.    .a88 88,    ,88 88      88      88 '8b, , aa     '8a,   ,a8'   `8b,d8'   '8b,   ,aa 88")
-            println("  `'Y88888P'  `'8bbdP'Y8 88      88      88  `'Ybbd8''     `'YbbdP''      '8'      `'Ybbd8'' 88")
-            println("\n...")
         }
     }
-
+}

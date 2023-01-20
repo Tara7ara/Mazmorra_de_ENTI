@@ -1,3 +1,6 @@
+/*
+package NO_PRESENTABLE
+
 class OrcoStats {
     val name: String = "Orco"
     val max_hp: Int = 50
@@ -11,3 +14,5 @@ class OrcoStats {
         var dmg: Int = 15
     }
 }
+
+ */
