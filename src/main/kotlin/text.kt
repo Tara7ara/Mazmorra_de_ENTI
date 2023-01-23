@@ -1,3 +1,4 @@
+//Funciones a la cual hay texto o arte ascii
 fun presentation(player: PlayerStats){
     println("    ////////  ========================")
     println(" .  =======   =Como quieres llamarte?=")
@@ -76,7 +77,7 @@ fun showHelp() {
     println("Las letras significan algo, si quieres saber lo que significa, descubrelo por tu parte.")
     println("El '@' significa donde estas tu, si escribes un comando erroneo, en el mapa no se te marcara")
     println("Si te encuentras en un obejto pero no lo pillas, desaparecera, porque tienes una \u001B[31mmaldición\u001B[0m")
-    println("El # es el borde del mapa, y la D es una puerta a la cual has de ir escribiendo use key para abri la puerta")
+    println("El # es el borde del mapa, y la D es una puerta a la cual has de ir escribiendo use key para abrir la puerta")
     printMap()
 }
 
@@ -214,24 +215,24 @@ fun asciiCredits() {
     println("- Beta testers: Guillem, Jan, Taratara")
 }
 fun asciiWin(){
-    println("8b        d8 ,ad8888ba,   88        88   I8,        8        ,8I  ,ad8888ba,   888b      88  ")
+    println("\u001B[32m8b        d8 ,ad8888ba,   88        88   I8,        8        ,8I  ,ad8888ba,   888b      88  ")
     println(" Y8,    ,8P d8''    `'8b  88        88   `8b       d8b       d8' d8''    `'8b  8888b     88  ")
     println("  Y8,  ,8P d8'        `8b 88        88    '8,     ,8'8,     ,8' d8'        `8b 88 `8b    88  ")
     println("   '8aa8'  88          88 88        88     Y8     8P Y8     8P  88          88 88  `8b   88  ")
     println("    `88'   88          88 88        88     `8b   d8' `8b   d8'  88          88 88   `8b  88  ")
     println("     88    Y8,        ,8P 88        88      `8a a8'   `8a a8'   Y8,        ,8P 88    `8b 88  ")
     println("     88     Y8a.    .a8P  Y8a.    .a8P       `8a8'     `8a8'     Y8a.    .a8P  88     `8888  ")
-    println("     88      `'Y8888Y''    `'Y8888Y''         `8'       `8'       `'Y8888Y''   88      `888  ")
+    println("     88      `'Y8888Y''    `'Y8888Y''         `8'       `8'       `'Y8888Y''   88      `888  \u001B[0m")
 }
 fun asciiLost(){
-    println("8b        d8 ,ad8888ba,   88        88    88          ,ad8888ba,    ad88888ba  888888888888")
+    println("\u001B[31m8b        d8 ,ad8888ba,   88        88    88          ,ad8888ba,    ad88888ba  888888888888")
     println(" Y8,    ,8P d8''    `'8b  88        88    88         d8'''    `'8b  d8''    '8b     88")
     println("  Y8,  ,8P d8'        `8b 88        88    88        d8'        `8b Y8,              88")
     println("   '8aa8'  88          88 88        88    88        88          88 `Y8aaaaa,        88")
     println("    `88'   88          88 88        88    88        88          88   `'''''8b,      88    ")
     println("     88    Y8,        ,8P 88        88    88        Y8,        ,8P         `8b      88       ")
     println("     88     Y8a.    .a8P  Y8a.    .a8P    88         Y8a.    .a8P  Y8a     a8P      88       ")
-    println("     88      `'Y8888Y''    `'Y8888Y''     88888888888 `'Y8888Y''    'Y88888P'       88 ")
+    println("     88      `'Y8888Y''    `'Y8888Y''     88888888888 `'Y8888Y''    'Y88888P'       88 \u001B[0m")
 }
 fun gameOver(){
     println("                           ,--.")

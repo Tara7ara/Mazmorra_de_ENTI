@@ -9,6 +9,7 @@ fun main() {
     mainLoop(player)
 }
 
+//Funcion para "limpiar la consola"
 fun clearScreen() {
     for (i in 1..35) {
         println()

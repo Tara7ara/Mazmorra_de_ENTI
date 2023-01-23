@@ -1,40 +1,15 @@
 import java.util.*
 import kotlin.system.exitProcess
 
-fun combat(enemy: String, player: PlayerStats) {
+//Funcion del combate
+fun combat(enemy: String, player: PlayerStats, enemyStats: EnemyStats) {
 
     val random = Random()
-    var enemyHp = 0
-    var enemyDmg = 0
-    var maxEnemyHp = 0
 
-    when (enemy) {
-        "orc" -> {
-            maxEnemyHp = 50
-            enemyHp = 50
-            enemyDmg = 15
-        }
-        "goblin" -> {
-            maxEnemyHp = 30
-            enemyHp = 30
-            enemyDmg = 5
-        }
-        "troll" -> {
-            maxEnemyHp = 20
-            enemyHp = 20
-            enemyDmg = 10
-        }
-        "devilBoss" -> {
-            maxEnemyHp = 300
-            enemyHp = 300
-            enemyDmg = 20
-        }
-    }
-
-    while (enemyHp > 0 && player.hp > 0) {
+    while (enemyStats.enemyHp > 0 && player.hp > 0) {
 
         println("\n=== Combat ===")
-        println("Enemigo: $enemy - HP [$enemyHp / $maxEnemyHp] - DMG [$enemyDmg]")
+        println("Enemigo: $enemy - HP [${enemyStats.enemyHp} / ${enemyStats.maxEnemyHp}] - DMG [${enemyStats.enemyDmg}]")
         println("${player.name}, Coordenadas: [ ${player.posX}, ${player.posY} ]")
         println("HP - [ ${player.hp} / ${player.maxHp} ]")
         println("DMG - [ ${player.dmg}]")
@@ -56,34 +31,40 @@ fun combat(enemy: String, player: PlayerStats) {
         when (readLine()) {
 
             "hit" -> {
-                enemyHp -= player.dmg
-                player.hp -= enemyDmg
+                enemyStats.enemyHp -= player.dmg
+                player.hp -= enemyStats.enemyDmg
                 println("Has hecho ${player.dmg} dmg")
-                println("Has recibido $enemyDmg de dmg")
+                println("Has recibido ${enemyStats.enemyDmg} de dmg")
                 println("Tu vida actual queda en ${player.hp}")
             }
 
             "use sword" -> {
                 if (player.sword) {
-                    enemyHp -= player.dmg + 25
-                    player.hp -= enemyDmg
+                    enemyStats.enemyHp -= player.dmg + 25
+                    player.hp -= enemyStats.enemyDmg
                     println("Has hecho ${player.dmg+25} de dmg")
-                    println("Has recibido $enemyDmg de dmg")
+                    println("Has recibido ${enemyStats.enemyDmg} de dmg")
                     println("Tu vida actual queda en ${player.hp}")
                 } else {
                     println("No tienes espada")
+                    player.hp -= enemyStats.enemyDmg
+                    println("Has recibido ${enemyStats.enemyDmg} de dmg")
+                    println("Tu vida actual queda en ${player.hp}")
                 }
             }
 
             "use gun" -> {
                 if (player.gun) {
-                    enemyHp -= player.dmg + 50
-                    player.hp -= enemyDmg
+                    enemyStats.enemyHp -= player.dmg + 50
+                    player.hp -= enemyStats.enemyDmg
                     println("Has hecho ${player.dmg+50} de dmg")
-                    println("Has recibido $enemyDmg de dmg")
+                    println("Has recibido ${enemyStats.enemyDmg} de dmg")
                     println("Tu vida actual queda en ${player.hp}")
                 } else {
                     println("No tienes la pistola")
+                    player.hp -= enemyStats.enemyDmg
+                    println("Has recibido ${enemyStats.enemyDmg} de dmg")
+                    println("Tu vida actual queda en ${player.hp}")
                 }
             }
 
@@ -94,20 +75,23 @@ fun combat(enemy: String, player: PlayerStats) {
             "use bomb" -> {
                 if (player.bomb > 0) {
                     val bombDmg = random.nextInt(6)
-                    enemyHp -= 50
-                    player.hp -= bombDmg
+                    enemyStats.enemyHp -= 50
+                    player.hp -= bombDmg + enemyStats.enemyDmg
                     player.bomb--
                     println("Has hecho 50 de dmg")
                     println("Has recibido $bombDmg de dmg, por el daño explosivo")
-                    println("Has recibido $enemyDmg de dmg por el enemigo")
+                    println("Has recibido ${enemyStats.enemyDmg} de dmg por el enemigo")
                     println("Tu vida actual queda en ${player.hp}")
                 } else {
                     println("No tienes bombas")
+                    player.hp -= enemyStats.enemyDmg
+                    println("Has recibido ${enemyStats.enemyDmg} de dmg")
+                    println("Tu vida actual queda en ${player.hp}")
                 }
             }
         }
 
-        if (enemy == "devilBoss" && enemyHp <= 0) {
+        if (enemy == "devilBoss" && enemyStats.enemyHp <= 0) {
             clearScreen()
             asciiWin()
             Thread.sleep(3000)
@@ -130,7 +114,7 @@ fun combat(enemy: String, player: PlayerStats) {
             clearScreen()
             asciiCredits()
             exitProcess(0)
-        } else if (enemyHp <= 0) {
+        } else if (enemyStats.enemyHp <= 0) {
             clearScreen()
             println("Has ganado el combate")
             return
