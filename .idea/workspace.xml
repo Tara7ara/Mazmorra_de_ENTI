@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="38bb5b0c-2b95-456b-abcd-e42991c5bea3" name="Changes" comment="FUNCIONA">
+    <list default="true" id="38bb5b0c-2b95-456b-abcd-e42991c5bea3" name="Changes" comment="FUNCIONA, aunque por ahora se mueve con wasd, para ir mas rapido y falta feedback y separar archivos">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
     </list>
@@ -101,7 +101,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674475071583</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="FUNCIONA, aunque por ahora se mueve con wasd, para ir mas rapido y falta feedback y separar archivos">
+      <created>1674476203228</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1674476203228</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -121,6 +128,7 @@
     <MESSAGE value="Ya no hay errores" />
     <MESSAGE value="hay la carpeta donde lo hice todo D1 sin comprobar (no va, pero reciclo codigo)&#10;Y ahora en el nuevo main ya va las cosas, pero se que hay que arreglar cosas como lo que ocupa del archivo, etc" />
     <MESSAGE value="FUNCIONA" />
-    <option name="LAST_COMMIT_MESSAGE" value="FUNCIONA" />
+    <MESSAGE value="FUNCIONA, aunque por ahora se mueve con wasd, para ir mas rapido y falta feedback y separar archivos" />
+    <option name="LAST_COMMIT_MESSAGE" value="FUNCIONA, aunque por ahora se mueve con wasd, para ir mas rapido y falta feedback y separar archivos" />
   </component>
 </project>

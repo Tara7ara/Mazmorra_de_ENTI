@@ -568,7 +568,7 @@ fun clearScreen() {
 //Un array del mapa para poder ir moificando a tiempo real
 val Map1 = arrayOf(
     charArrayOf('#', '#', '#', '#', '#', '#', '#', '#', '#', '#'),
-    charArrayOf('#', '@', 'J', 'P', '.', '.', '.', '.', '#', '#'),
+    charArrayOf('#', '@', '.', 'P', '.', '.', '.', '.', '#', '#'),
     charArrayOf('#', '#', '.', 'G', '#', 'B', '#', '.', '.', '#'),
     charArrayOf('#', '.', '.', '.', '#', '#', '#', '#', '.', '#'),
     charArrayOf('#', 'P', '.', '.', '#', 'J', '#', '.', 'S', '#'),
@@ -618,8 +618,8 @@ class PlayerStats(
     var posX: Int = 1,
     var posY: Int = 1,
     val maxHp: Int = 100,
-    var hp: Int = 999,
-    var dmg: Int = 999,
+    var hp: Int = 999, //100
+    var dmg: Int = 999, //5
     var potion: Int = 0,
     var bomb: Int = 0,
     var key: Boolean = false,
@@ -833,7 +833,7 @@ fun gameOver(){
     println("  `'Y88888P'  `'8bbdP'Y8 88      88      88  `'Ybbd8''     `'YbbdP''      '8'      `'Ybbd8'' 88")
 }
 
-fun presentation(){
+fun presentation(player: PlayerStats){
     println("    ////////  ========================")
     println(" .  =======   =Como quieres llamarte?=")
     println("( )| O   O |  /=======================")
@@ -847,6 +847,135 @@ fun presentation(){
     println(" #   || ||")
     println(".#---'| |`----.")
     println("`#----' `-----'")
+
+    val name1 = readLine()
+    if (name1 != null) {
+        player.name = name1
+    }
+}
+
+//funcion para ver el inventario
+fun inventory(player: PlayerStats){
+    println("\n=== Estadisticas ===")
+    println("Name: ${player.name}, Coordenadas: [ ${player.posX}, ${player.posY} ]")
+    println("HP - [ ${player.hp} / ${player.maxHp} ]")
+    val damage = if(player.sword){
+        player.dmg + 25
+    }else{
+        player.dmg
+    }
+    println("DMG - $damage")
+    println("=== Inventario ===")
+    println("Tienes ${player.potion} pociones")
+    println("Tienes ${player.bomb} bombas")
+    if (player.sword){
+        println("Tienes la Espada, que te suma tu dmg +25")
+    }
+    if (player.key){
+        println("Tienes la llave")
+    }
+    println()
+    printMap()
+}
+
+//Funcion para beber una pocion
+fun usePotion(player: PlayerStats){
+    if (player.potion > 0){
+        if (player.hp == player.maxHp) {
+            println("Ya tienes la vida máxima, no necesitas consumir una poción.")
+        } else {
+            clearScreen()
+            if (player.hp + 30 > player.maxHp) {
+                println("Te has curado hasta el maximo de vida")
+                player.hp = player.maxHp
+            } else {
+                println("Te has curado 30 de vida")
+                player.hp += 30
+            }
+            player.potion--
+            printMap()
+        }
+    } else {
+        println("No tienes pociones")
+    }
+}
+
+//Funcion para abrir la puerta mas cercana
+fun openDor(player: PlayerStats){
+    if (player.key){
+        var doorFound = false
+        val minX = if (player.posX-2 < 0) 0 else player.posX-2
+        val maxX = if (player.posX+2 > Map1.size - 1) Map1.size - 1 else player.posX+2
+        val minY = if (player.posY-2 < 0) 0 else player.posY-2
+        val maxY = if (player.posY+2 > Map1[0].size - 1) Map1[0].size - 1 else player.posY+2
+        for (i in minX..maxX) {
+            for (j in minY..maxY) {
+                if (Map1[i][j] == 'D') {
+                    Map1[i][j] = '.'
+                    doorFound = true
+                    break
+                }
+            }
+            if (doorFound) break
+        }
+        if (doorFound) {
+            player.key = false
+            println("La llave se ha usado, LA PUERTA MAS CERCA HA DESAPARECIDO, ESTA EN EL RANGO DE TU POSICION")
+        } else {
+            println("No hay ninguna puerta cerca, tienes que estar en un rango 2x2 aprox")
+        }
+        printMap()
+    } else {
+        println("No tienes la llave")
+    }
+}
+
+fun checkbox(player: PlayerStats){
+    if (Map1[player.posX][player.posY] == 'P') {
+        asciiPotion()
+        val response = readLine()
+        if (response == "yes") {
+            player.potion++
+        }
+    }else if (Map1[player.posX][player.posY] == 'B') {
+        asciiBomb()
+        val response = readLine()
+        if (response == "yes") {
+            player.bomb++
+        }
+    }else if (Map1[player.posX][player.posY] == 'S') {
+        asciiSword()
+        val response = readLine()
+        if (response == "yes") {
+            player.sword = true
+        }
+    }else if (Map1[player.posX][player.posY] == 'K') {
+        asciiKey()
+        val response = readLine()
+        if (response == "yes") {
+            player.key = true
+        }
+    }else if (Map1[player.posX][player.posY] == 'T') {
+        asciiTroll()
+        Thread.sleep(1000)
+        combat("troll", player)
+    }else if (Map1[player.posX][player.posY] == 'G'){
+        asciiGoblin()
+        Thread.sleep(1000)
+        combat("goblin", player)
+    }else if (Map1[player.posX][player.posY] == 'O'){
+        asciiOrc()
+        Thread.sleep(1000)
+        combat("orc", player)
+    }else if (Map1[player.posX][player.posY] == 'J'){
+        asciiDevilBoss()
+        Thread.sleep(3000)
+        combat("devilBoss", player)
+    }else {
+        Map1[player.posX][player.posY] = '@'
+    }
+    Map1[player.posX][player.posY] = '@'
+    printMap()
 }
 
 //Crear la clase de enemy
@@ -963,6 +1092,7 @@ fun combat(enemy: String, player: PlayerStats) {
             Thread.sleep(3000)
             clearScreen()
             asciiCredits()
+            //exit = true
             exitProcess(0)
         }
 
@@ -973,6 +1103,7 @@ fun combat(enemy: String, player: PlayerStats) {
             Thread.sleep(3000)
             clearScreen()
             asciiCredits()
+            //exit = true
             exitProcess(0)
         } else if (enemyHp <= 0) {
             println("Has ganado el combate")
@@ -981,79 +1112,19 @@ fun combat(enemy: String, player: PlayerStats) {
     }
 }
 
-fun main() {
+//Bucle principal (movimiento, etc.)
 
-    var nameConfirm = 0
-    val player = PlayerStats("player")
-    while (nameConfirm != 1) {
-        presentation()
-        val name1 = readLine()
-        if (name1 != null) {
-            player.name = name1
-        }
-        nameConfirm = 1
-    }
-    clearScreen()
+fun mainLoop(player: PlayerStats){
 
-    println("Tu nombre es: ${player.name} \n\n")
-    println("Este es el mapa, si no entiendes nada o lo que tienes que hacer, escribe help")
-    printMap()
-
-    initPlayer()
     while (true) {
-        println("Que quieres hacer? [go (north, south, east, west)]")
+        println("Que quieres hacer? (w, a, s, d)")
         when (readLine()) {
             "w" -> {//go north
                 if (player.posX > 0 && Map1[player.posX - 1][player.posY] != '#' && Map1[player.posX - 1][player.posY] != 'D') {
                     clearScreen()
                     Map1[player.posX][player.posY] = '.'
                     player.posX--
-
-                    if (Map1[player.posX][player.posY] == 'P') {
-                        asciiPotion()
-                        val response = readLine()
-                        if (response == "yes") {
-                            player.potion++
-                        }
-                    }else if (Map1[player.posX][player.posY] == 'B') {
-                        asciiBomb()
-                        val response = readLine()
-                        if (response == "yes") {
-                            player.bomb++
-                        }
-                    }else if (Map1[player.posX][player.posY] == 'S') {
-                        asciiSword()
-                        val response = readLine()
-                        if (response == "yes") {
-                            player.sword = true
-                        }
-                    }else if (Map1[player.posX][player.posY] == 'K') {
-                        asciiKey()
-                        val response = readLine()
-                        if (response == "yes") {
-                            player.key = true
-                        }
-                    }else if (Map1[player.posX][player.posY] == 'T') {
-                        asciiTroll()
-                        Thread.sleep(3000)
-                        combat("troll", player)
-                    }else if (Map1[player.posX][player.posY] == 'G'){
-                        asciiGoblin()
-                        Thread.sleep(3000)
-                        combat("goblin", player)
-                    }else if (Map1[player.posX][player.posY] == 'O'){
-                        asciiOrc()
-                        Thread.sleep(3000)
-                        combat("orc", player)
-                    }else if (Map1[player.posX][player.posY] == 'J'){
-                        asciiDevilBoss()
-                        Thread.sleep(3000)
-                        combat("devilBoss", player)
-                    }else {
-                        Map1[player.posX][player.posY] = '@'
-                    }
-                    Map1[player.posX][player.posY] = '@'
-                    printMap()
+                    checkbox(player)
                 }
             }
 
@@ -1062,52 +1133,7 @@ fun main() {
                     clearScreen()
                     Map1[player.posX][player.posY] = '.'
                     player.posX++
-
-                    if (Map1[player.posX][player.posY] == 'P') {
-                        asciiPotion()
-                        val response = readLine()
-                        if (response == "yes") {
-                            player.potion++
-                        }
-                    }else if (Map1[player.posX][player.posY] == 'B') {
-                        asciiBomb()
-                        val response = readLine()
-                        if (response == "yes") {
-                            player.bomb++
-                        }
-                    }else if (Map1[player.posX][player.posY] == 'S') {
-                        asciiSword()
-                        val response = readLine()
-                        if (response == "yes") {
-                            player.sword = true
-                        }
-                    }else if (Map1[player.posX][player.posY] == 'K') {
-                        asciiKey()
-                        val response = readLine()
-                        if (response == "yes") {
-                            player.key = true
-                        }
-                    }else if (Map1[player.posX][player.posY] == 'T') {
-                        asciiTroll()
-                        Thread.sleep(3000)
-                        combat("troll", player)
-                    }else if (Map1[player.posX][player.posY] == 'G'){
-                        asciiGoblin()
-                        Thread.sleep(3000)
-                        combat("goblin", player)
-                    }else if (Map1[player.posX][player.posY] == 'O'){
-                        asciiOrc()
-                        Thread.sleep(3000)
-                        combat("orc", player)
-                    }else if (Map1[player.posX][player.posY] == 'J'){
-                        asciiDevilBoss()
-                        Thread.sleep(3000)
-                        combat("devilBoss", player)
-                    }else {
-                        Map1[player.posX][player.posY] = '@'
-                    }
-                    Map1[player.posX][player.posY] = '@'
-                    printMap()
+                    checkbox(player)
                 }
             }
 
@@ -1116,52 +1142,7 @@ fun main() {
                     clearScreen()
                     Map1[player.posX][player.posY] = '.'
                     player.posY++
-
-                    if (Map1[player.posX][player.posY] == 'P') {
-                        asciiPotion()
-                        val response = readLine()
-                        if (response == "yes") {
-                            player.potion++
-                        }
-                    }else if (Map1[player.posX][player.posY] == 'B') {
-                        asciiBomb()
-                        val response = readLine()
-                        if (response == "yes") {
-                            player.bomb++
-                        }
-                    }else if (Map1[player.posX][player.posY] == 'S') {
-                        asciiSword()
-                        val response = readLine()
-                        if (response == "yes") {
-                            player.sword = true
-                        }
-                    }else if (Map1[player.posX][player.posY] == 'K') {
-                        asciiKey()
-                        val response = readLine()
-                        if (response == "yes") {
-                            player.key = true
-                        }
-                    }else if (Map1[player.posX][player.posY] == 'T') {
-                        asciiTroll()
-                        Thread.sleep(3000)
-                        combat("troll", player)
-                    }else if (Map1[player.posX][player.posY] == 'G'){
-                        asciiGoblin()
-                        Thread.sleep(3000)
-                        combat("goblin", player)
-                    }else if (Map1[player.posX][player.posY] == 'O'){
-                        asciiOrc()
-                        Thread.sleep(3000)
-                        combat("orc", player)
-                    }else if (Map1[player.posX][player.posY] == 'J'){
-                        asciiDevilBoss()
-                        Thread.sleep(3000)
-                        combat("devilBoss", player)
-                    }else {
-                        Map1[player.posX][player.posY] = '@'
-                    }
-                    Map1[player.posX][player.posY] = '@'
-                    printMap()
+                    checkbox(player)
                 }
             }
 
@@ -1170,109 +1151,17 @@ fun main() {
                     clearScreen()
                     Map1[player.posX][player.posY] = '.'
                     player.posY--
-
-                    if (Map1[player.posX][player.posY] == 'P') {
-                        asciiPotion()
-                        val response = readLine()
-                        if (response == "yes") {
-                            player.potion++
-                        }
-                    }else if (Map1[player.posX][player.posY] == 'B') {
-                        asciiBomb()
-                        val response = readLine()
-                        if (response == "yes") {
-                            player.bomb++
-                        }
-                    }else if (Map1[player.posX][player.posY] == 'S') {
-                        asciiSword()
-                        val response = readLine()
-                        if (response == "yes") {
-                            player.sword = true
-                        }
-                    }else if (Map1[player.posX][player.posY] == 'K') {
-                        asciiKey()
-                        val response = readLine()
-                        if (response == "yes") {
-                            player.key = true
-                        }
-                    }else if (Map1[player.posX][player.posY] == 'T') {
-                        asciiTroll()
-                        Thread.sleep(3000)
-                        combat("troll", player)
-                    }else if (Map1[player.posX][player.posY] == 'G'){
-                        asciiGoblin()
-                        Thread.sleep(3000)
-                        combat("goblin", player)
-                    }else if (Map1[player.posX][player.posY] == 'O'){
-                        asciiOrc()
-                        Thread.sleep(3000)
-                        combat("orc", player)
-                    }else if (Map1[player.posX][player.posY] == 'J'){
-                        asciiDevilBoss()
-                        Thread.sleep(3000)
-                        combat("devilBoss", player)
-                    }
-                    else {
-                        Map1[player.posX][player.posY] = '@'
-                    }
-                    Map1[player.posX][player.posY] = '@'
-                    printMap()
+                    checkbox(player)
                 }
             }
 
             "use potion" -> {
-                if (player.potion > 0){
-                    if (player.hp == player.maxHp) {
-                        println("Ya tienes la vida máxima, no necesitas consumir una poción.")
-                    } else {
-                        clearScreen()
-                        if (player.hp + 30 > player.maxHp) {
-                            println("Te has curado hasta el maximo de vida")
-                            player.hp = player.maxHp
-                        } else {
-                            println("Te has curado 30 de vida")
-                            player.hp += 30
-                        }
-                        player.potion--
-                        printMap()
-                    }
-                } else {
-                    println("No tienes pociones")
-                }
+                usePotion(player)
             }
 
-            //abre la puerta mas cercana
             "use key" -> {
-                if (player.key){
-                    var doorFound = false
-                    val minX = if (player.posX-2 < 0) 0 else player.posX-2
-                    val maxX = if (player.posX+2 > Map1.size - 1) Map1.size - 1 else player.posX+2
-                    val minY = if (player.posY-2 < 0) 0 else player.posY-2
-                    val maxY = if (player.posY+2 > Map1[0].size - 1) Map1[0].size - 1 else player.posY+2
-                    for (i in minX..maxX) {
-                        for (j in minY..maxY) {
-                            if (Map1[i][j] == 'D') {
-                                Map1[i][j] = '.'
-                                doorFound = true
-                                break
-                            }
-                        }
-                        if (doorFound) break
-                    }
-                    if (doorFound) {
-                        player.key = false
-                        println("La llave se ha usado, LA PUERTA MAS CERCA HA DESAPARECIDO, ESTA EN EL RANGO DE TU POSICION")
-                    } else {
-                        println("No hay ninguna puerta cerca, tienes que estar en un rango 2x2 aprox")
-                    }
-                    printMap()
-                } else {
-                    println("No tienes la llave")
-                }
+                openDor(player)
             }
-
-
-
 
             "help" -> {
                 clearScreen()
@@ -1283,32 +1172,32 @@ fun main() {
             "inventory" -> {
                 clearScreen()
 
-                println("\n=== Estadisticas ===")
-                println("Name: ${player.name}, Coordenadas: [ ${player.posX}, ${player.posY} ]")
-                println("HP - [ ${player.hp} / ${player.maxHp} ]")
-                val damage = if(player.sword){
-                    player.dmg + 25
-                }else{
-                    player.dmg
-                }
-                println("DMG - $damage")
-                println("=== Inventario ===")
-                println("Tienes ${player.potion} pociones")
-                println("Tienes ${player.bomb} bombas")
-                if (player.sword){
-                    println("Tienes la Espada, que te suma tu dmg +25")
-                }
-                if (player.key){
-                    println("Tienes la llave")
-                }
-                println()
-                printMap()
+                inventory(player)
             }
 
+            //LO TENGO QUE DESACTIVAR CUANDO ESTE ACABADO
             "hack" -> {
                 //Comando para hacer pruebas
                 player.hp --
             }
         }
     }
+}
+fun main() {
+
+    var nameConfirm = 0
+    val player = PlayerStats("player")
+    while (nameConfirm != 1) {
+        presentation(player)
+        nameConfirm = 1
+    }
+    clearScreen()
+
+    println("Tu nombre es: ${player.name} \n\n")
+    println("Este es el mapa, si no entiendes nada o lo que tienes que hacer, escribe help")
+    printMap()
+
+    initPlayer()
+    mainLoop(player)
+
 }
