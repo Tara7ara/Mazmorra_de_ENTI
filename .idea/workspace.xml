@@ -4,19 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="38bb5b0c-2b95-456b-abcd-e42991c5bea3" name="Changes" comment="Ya no hay errores">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/NO_PRESENTABLE/Main.kt" afterDir="false" />
+    <list default="true" id="38bb5b0c-2b95-456b-abcd-e42991c5bea3" name="Changes" comment="hay la carpeta donde lo hice todo D1 sin comprobar (no va, pero reciclo codigo)&#10;Y ahora en el nuevo main ya va las cosas, pero se que hay que arreglar cosas como lo que ocupa del archivo, etc">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Characters.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/NO_PRESENTABLE/Characters.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/EnemyTransport.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/NO_PRESENTABLE/EnemyTransport.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/GoblinStats.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/NO_PRESENTABLE/GoblinStats.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/JefeStats.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/NO_PRESENTABLE/JefeStats.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Map.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/NO_PRESENTABLE/Map.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Objects.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/NO_PRESENTABLE/Objects.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/OrcoStats.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/NO_PRESENTABLE/OrcoStats.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/PlayerStats.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/NO_PRESENTABLE/PlayerStats.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/TrollStats.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/NO_PRESENTABLE/TrollStats.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,14 +33,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/1_Ciber/PRUEBA DE MAZMORRA/MAZMORRAENTIARREGLOS&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "D:/1_Ciber/PRUEBA DE MAZMORRA/MAZMORRAENTIARREGLOS",
+    "settings.editor.selected.configurable": "vcs.Git"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\1_Ciber\Mazmorra_de_ENTI\src\main\kotlin" />
@@ -89,7 +80,21 @@
       <option name="project" value="LOCAL" />
       <updated>1673339926451</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="hay la carpeta donde lo hice todo D1 sin comprobar (no va, pero reciclo codigo)&#10;Y ahora en el nuevo main ya va las cosas, pero se que hay que arreglar cosas como lo que ocupa del archivo, etc">
+      <created>1674214462899</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1674214462899</updated>
+    </task>
+    <task id="LOCAL-00005" summary="hay la carpeta donde lo hice todo D1 sin comprobar (no va, pero reciclo codigo)&#10;Y ahora en el nuevo main ya va las cosas, pero se que hay que arreglar cosas como lo que ocupa del archivo, etc">
+      <created>1674214557054</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1674214557054</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -107,6 +112,7 @@
     <MESSAGE value="Enti Dungeons, un nuevo juego creado en kotlin" />
     <MESSAGE value="MUCHO TRABAJO ADELANTADO" />
     <MESSAGE value="Ya no hay errores" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ya no hay errores" />
+    <MESSAGE value="hay la carpeta donde lo hice todo D1 sin comprobar (no va, pero reciclo codigo)&#10;Y ahora en el nuevo main ya va las cosas, pero se que hay que arreglar cosas como lo que ocupa del archivo, etc" />
+    <option name="LAST_COMMIT_MESSAGE" value="hay la carpeta donde lo hice todo D1 sin comprobar (no va, pero reciclo codigo)&#10;Y ahora en el nuevo main ya va las cosas, pero se que hay que arreglar cosas como lo que ocupa del archivo, etc" />
   </component>
 </project>
