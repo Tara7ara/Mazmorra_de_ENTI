@@ -4,9 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="38bb5b0c-2b95-456b-abcd-e42991c5bea3" name="Changes" comment="FUNCIONA, aunque por ahora se mueve con wasd, para ir mas rapido y falta feedback y separar archivos">
+    <list default="true" id="38bb5b0c-2b95-456b-abcd-e42991c5bea3" name="Changes" comment="FUNCIONA, aunque por ahora se mueve con wasd, para ir mas rapido y falta feedback y separar archivos, el main ahora tiene sentido">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/Enemys.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/Map.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/Player.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/text.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/NO_PRESENTABLE/Characters.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/NO_PRESENTABLE/EnemyTransport.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/NO_PRESENTABLE/GoblinStats.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/NO_PRESENTABLE/JefeStats.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/NO_PRESENTABLE/Main.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/NO_PRESENTABLE/Map.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/NO_PRESENTABLE/Objects.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/NO_PRESENTABLE/OrcoStats.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/NO_PRESENTABLE/PlayerStats.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/NO_PRESENTABLE/TrollStats.kt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +53,9 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "last_opened_file_path": "D:/1_Ciber/Mazmorra_de_ENTI",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
     "settings.editor.selected.configurable": "vcs.Git"
   }
 }]]></component>
@@ -108,7 +125,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674476203228</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="FUNCIONA, aunque por ahora se mueve con wasd, para ir mas rapido y falta feedback y separar archivos, el main ahora tiene sentido">
+      <created>1674480602920</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1674480602920</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -129,6 +153,7 @@
     <MESSAGE value="hay la carpeta donde lo hice todo D1 sin comprobar (no va, pero reciclo codigo)&#10;Y ahora en el nuevo main ya va las cosas, pero se que hay que arreglar cosas como lo que ocupa del archivo, etc" />
     <MESSAGE value="FUNCIONA" />
     <MESSAGE value="FUNCIONA, aunque por ahora se mueve con wasd, para ir mas rapido y falta feedback y separar archivos" />
-    <option name="LAST_COMMIT_MESSAGE" value="FUNCIONA, aunque por ahora se mueve con wasd, para ir mas rapido y falta feedback y separar archivos" />
+    <MESSAGE value="FUNCIONA, aunque por ahora se mueve con wasd, para ir mas rapido y falta feedback y separar archivos, el main ahora tiene sentido" />
+    <option name="LAST_COMMIT_MESSAGE" value="FUNCIONA, aunque por ahora se mueve con wasd, para ir mas rapido y falta feedback y separar archivos, el main ahora tiene sentido" />
   </component>
 </project>
