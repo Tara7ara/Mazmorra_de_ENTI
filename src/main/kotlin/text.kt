@@ -107,7 +107,7 @@ fun asciiSword(){
     println("\u001B[33;1m      ·\u001B[0m")
     println()
 }
-fun asciiWapon(){
+fun asciiGun(){
     println("hay una pistola en el suelo, quieres pillarlo? (yes/no)")
     println("\u001B[30m   +--^----------,--------,-----,--------^-,")
     println("   | |||||||||   `--------'     |          O")

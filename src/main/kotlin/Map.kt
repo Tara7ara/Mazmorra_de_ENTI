@@ -63,7 +63,7 @@ fun checkbox(player: PlayerStats){
             player.sword = true
         }
     }else if (bigMap[player.posX][player.posY] == 'A') {
-        asciiWapon()
+        asciiGun()
         val response = readLine()
         if (response != "no") {
             player.gun = true
