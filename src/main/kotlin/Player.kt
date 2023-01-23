@@ -40,7 +40,6 @@ fun usePotion(player: PlayerStats){
         if (player.hp == player.maxHp) {
             println("Ya tienes la vida máxima, no necesitas consumir una poción.")
         } else {
-            clearScreen()
             if (player.hp + 50 > player.maxHp) {
                 println("Te has curado hasta el maximo de vida")
                 player.hp = player.maxHp
@@ -136,6 +135,7 @@ fun mainLoop(player: PlayerStats){
             }
 
             "use potion" -> {
+                clearScreen()
                 usePotion(player)
                 printMap()
             }

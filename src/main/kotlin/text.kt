@@ -64,7 +64,6 @@ fun presentation(player: PlayerStats){
     println("`#----' `-----'")
     printMap()
 }
-
 fun showHelp() {
     println("Los controles son:")
     println("\n- w- ->arriba")
@@ -80,7 +79,6 @@ fun showHelp() {
     println("El # es el borde del mapa, y la D es una puerta a la cual has de ir escribiendo use key para abrir la puerta")
     printMap()
 }
-
 fun asciiPotion(){
     println("hay una pocion en el suelo, quieres pillarlo? (yes/no)")
     println()
@@ -234,7 +232,7 @@ fun asciiLost(){
     println("     88     Y8a.    .a8P  Y8a.    .a8P    88         Y8a.    .a8P  Y8a     a8P      88       ")
     println("     88      `'Y8888Y''    `'Y8888Y''     88888888888 `'Y8888Y''    'Y88888P'       88 \u001B[0m")
 }
-fun gameOver(){
+fun asciiGameOver(){
     println("                           ,--.")
     println("                          {    }")
     println("                          K,   }")
