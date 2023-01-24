@@ -3,9 +3,9 @@ import kotlin.system.exitProcess
 
 //clase de enemy stats
 class EnemyStats(type: String) {
-    var enemyHp: Int = 0
-    var enemyDmg: Int = 0
-    var maxEnemyHp: Int = 0
+    private var enemyHp: Int = 0
+    private var enemyDmg: Int = 0
+    private var maxEnemyHp: Int = 0
 
     init {
         when (type) {
@@ -122,30 +122,30 @@ class EnemyStats(type: String) {
             }
 
             if (enemy == "devilBoss" && enemyStats.enemyHp <= 0) {
-                clearScreen()
-                asciiWin()
+                MapFun.clearScreen()
+                Visual.asciiWin()
                 Thread.sleep(3000)
-                clearScreen()
-                asciiGameOver()
+                MapFun.clearScreen()
+                Visual.asciiGameOver()
                 Thread.sleep(3000)
-                clearScreen()
-                asciiCredits()
+                MapFun.clearScreen()
+                Visual.asciiCredits()
                 exitProcess(0)
             }
 
             if (player.hp <= 0) {
                 println("Has perdido el combate")
-                clearScreen()
-                asciiLost()
+                MapFun.clearScreen()
+                Visual.asciiLost()
                 Thread.sleep(3000)
-                clearScreen()
-                asciiGameOver()
+                MapFun.clearScreen()
+                Visual.asciiGameOver()
                 Thread.sleep(3000)
-                clearScreen()
-                asciiCredits()
+                MapFun.clearScreen()
+                Visual.asciiCredits()
                 exitProcess(0)
             } else if (enemyStats.enemyHp <= 0) {
-                clearScreen()
+                MapFun.clearScreen()
                 println("Has ganado el combate")
                 return
             }

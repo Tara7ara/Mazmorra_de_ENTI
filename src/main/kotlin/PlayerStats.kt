@@ -27,7 +27,7 @@ class PlayerStats (var name: String,
     }
 
     //funcion para ver el inventario, esta en player stats porque es lo que usa el player
-    fun inventory(player: PlayerStats){
+    private fun inventory(player: PlayerStats){
         println("\n=== Estadisticas ===")
         println("Name: ${player.name}, Coordenadas: [ ${player.posX}, ${player.posY} ]")
         println("HP - [ ${player.hp} / ${player.maxHp} ]")
@@ -46,7 +46,7 @@ class PlayerStats (var name: String,
         }
         println()
         Thread.sleep(2000)
-        printMap()
+        MapFun.printMap()
     }
 
     //Funcion para beber una pocion, lo mismo que antes, como lo usa el player esta aqui
@@ -70,7 +70,7 @@ class PlayerStats (var name: String,
     }
 
     //Funcion para abrir la puerta mas cercana, lo mismo que antes, como lo usa el player esta aqui
-    fun openDor(player: PlayerStats){
+    private fun openDor(player: PlayerStats){
         if (player.key){
             var doorFound = false
             val minX = if (player.posX-2 < 0) 0 else player.posX-2
@@ -93,7 +93,7 @@ class PlayerStats (var name: String,
             } else {
                 println("No hay ninguna puerta cerca, tienes que estar en un rango 2x2 aprox")
             }
-            printMap()
+            MapFun.printMap()
         } else {
             println("No tienes la llave")
         }
@@ -101,16 +101,16 @@ class PlayerStats (var name: String,
 
     //Bucle principal (movimiento, etc.), esta aqui porque es lo que usa el player
     fun mainLoop(player: PlayerStats){
-
         while (true) {
             println("Que quieres hacer? (w, a, s, d)")
             when (readLine()) {
                 "w" -> {//go north
+
                     if (player.posX > 0 && bigMap[player.posX - 1][player.posY] != '#' && bigMap[player.posX - 1][player.posY] != 'D') {
-                        clearScreen()
+                        MapFun.clearScreen()
                         bigMap[player.posX][player.posY] = '.'
                         player.posX--
-                        checkbox(player)
+                        MapFun.checkbox(player)
                     }else{
                         println("RECUERDA: #=limite del muro, D=puerta, si quieres abrir escribe use key teniendo la key en el inventario")
                     }
@@ -118,10 +118,10 @@ class PlayerStats (var name: String,
 
                 "s" -> {//go south
                     if (player.posX < bigMap.size - 1 && bigMap[player.posX + 1][player.posY] != '#' && bigMap[player.posX + 1][player.posY] != 'D') {
-                        clearScreen()
+                        MapFun.clearScreen()
                         bigMap[player.posX][player.posY] = '.'
                         player.posX++
-                        checkbox(player)
+                        MapFun.checkbox(player)
                     }else{
                         println("RECUERDA: #=limite del muro, D=puerta, si quieres abrir escribe use key teniendo la key en el inventario")
                     }
@@ -129,10 +129,10 @@ class PlayerStats (var name: String,
 
                 "d" -> {//go east
                     if (player.posY < bigMap[0].size - 1 && bigMap[player.posX][player.posY + 1] != '#'&& bigMap[player.posX][player.posY + 1] != 'D') {
-                        clearScreen()
+                        MapFun.clearScreen()
                         bigMap[player.posX][player.posY] = '.'
                         player.posY++
-                        checkbox(player)
+                        MapFun.checkbox(player)
                     }else{
                         println("RECUERDA: #=limite del muro, D=puerta, si quieres abrir escribe use key teniendo la key en el inventario")
                     }
@@ -140,19 +140,19 @@ class PlayerStats (var name: String,
 
                 "a" -> {//go west
                     if (player.posY > 0 && bigMap[player.posX][player.posY - 1] != '#' && bigMap[player.posX][player.posY - 1] != 'D') {
-                        clearScreen()
+                        MapFun.clearScreen()
                         bigMap[player.posX][player.posY] = '.'
                         player.posY--
-                        checkbox(player)
+                        MapFun.checkbox(player)
                     }else{
                         println("RECUERDA: #=limite del muro, D=puerta, si quieres abrir escribe use key teniendo la key en el inventario")
                     }
                 }
 
                 "use potion" -> {
-                    clearScreen()
+                    MapFun.clearScreen()
                     usePotion(player)
-                    printMap()
+                    MapFun.printMap()
                 }
 
                 "use key" -> {
@@ -160,12 +160,12 @@ class PlayerStats (var name: String,
                 }
 
                 "help" -> {
-                    clearScreen()
-                    showHelp()
+                    MapFun.clearScreen()
+                    Visual.showHelp()
                 }
 
                 "inventory" -> {
-                    clearScreen()
+                    MapFun.clearScreen()
                     player.inventory(player)
                 }
             }
