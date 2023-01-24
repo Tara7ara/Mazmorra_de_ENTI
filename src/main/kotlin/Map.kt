@@ -1,3 +1,5 @@
+
+
 //Mapa del juego
 val bigMap = arrayOf(
     charArrayOf('#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#'),
@@ -78,25 +80,32 @@ fun checkbox(player: PlayerStats){
         asciiTroll()
         Thread.sleep(1000)
         val enemyStats = EnemyStats("troll")
-        combat("troll", player, enemyStats)
+        enemyStats.combat("troll", player, enemyStats)
     }else if (bigMap[player.posX][player.posY] == 'G'){
         asciiGoblin()
         Thread.sleep(1000)
         val enemyStats = EnemyStats("goblin")
-        combat("goblin", player, enemyStats)
+        enemyStats.combat("goblin", player, enemyStats)
     }else if (bigMap[player.posX][player.posY] == 'O'){
         asciiOrc()
         Thread.sleep(1000)
         val enemyStats = EnemyStats("orc")
-        combat("orc", player, enemyStats)
+        enemyStats.combat("orc", player, enemyStats)
     }else if (bigMap[player.posX][player.posY] == 'J'){
         asciiDevilBoss()
         Thread.sleep(3000)
         val enemyStats = EnemyStats("devilBoss")
-        combat("devilBoss", player, enemyStats)
+        enemyStats.combat("devilBoss", player, enemyStats)
     }else {
         bigMap[player.posX][player.posY] = '@'
     }
     bigMap[player.posX][player.posY] = '@'
     printMap()
+}
+
+//Funcion para "limpiar la consola"
+fun clearScreen() {
+    for (i in 1..35) {
+        println()
+    }
 }

@@ -5,13 +5,6 @@ fun main() {
         presentation(player)
         nameConfirm = 1
     }
-    initPlayer()
-    mainLoop(player)
-}
-
-//Funcion para "limpiar la consola"
-fun clearScreen() {
-    for (i in 1..35) {
-        println()
-    }
+    player.initPlayer()
+    player.mainLoop(player)
 }

@@ -6,8 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="38bb5b0c-2b95-456b-abcd-e42991c5bea3" name="Changes" comment="Falta arreglar el tema de que si me muero me salga del juego sin usar el exitProcess(0), ahora si que si, el feedback es muy correcto">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/EnemyStats.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/EnemyStats.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Enemys.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Map.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Map.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/text.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/text.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Player.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/PlayerStats.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/PlayerStats.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +21,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Kotlin File" />
         <option value="Kotlin Class" />
+        <option value="Kotlin File" />
       </list>
     </option>
   </component>
@@ -39,7 +43,7 @@
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "D:/1_Ciber/Mazmorra_de_ENTI",
+    "last_opened_file_path": "D:/1_Ciber/kotlin_class",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
@@ -140,7 +144,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674503186144</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Falta arreglar el tema de que si me muero me salga del juego sin usar el exitProcess(0), ahora si que si, el feedback es muy correcto">
+      <created>1674511916501</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1674511916501</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
