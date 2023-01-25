@@ -2,7 +2,9 @@ import java.util.*
 import kotlin.system.exitProcess
 
 //clase de enemy stats
-class EnemyStats(type: String) {
+class EnemyStats(var type: String) {
+    var x: Int = 0
+    var y: Int = 0
     private var enemyHp: Int = 0
     private var enemyDmg: Int = 0
     private var maxEnemyHp: Int = 0

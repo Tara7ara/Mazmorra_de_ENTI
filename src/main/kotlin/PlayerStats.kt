@@ -111,6 +111,9 @@ class PlayerStats (var name: String,
                         bigMap[player.posX][player.posY] = '.'
                         player.posX--
                         MapFun.checkbox(player)
+                        val enemyMove = EnemyMove()
+                        enemyMove.EnemyCheck()
+                        enemyMove.moveEnemies()
                     }else{
                         println("RECUERDA: #=limite del muro, D=puerta, si quieres abrir escribe use key teniendo la key en el inventario")
                     }
@@ -122,6 +125,9 @@ class PlayerStats (var name: String,
                         bigMap[player.posX][player.posY] = '.'
                         player.posX++
                         MapFun.checkbox(player)
+                        val enemyMove = EnemyMove()
+                        enemyMove.EnemyCheck()
+                        enemyMove.moveEnemies()
                     }else{
                         println("RECUERDA: #=limite del muro, D=puerta, si quieres abrir escribe use key teniendo la key en el inventario")
                     }
@@ -133,6 +139,9 @@ class PlayerStats (var name: String,
                         bigMap[player.posX][player.posY] = '.'
                         player.posY++
                         MapFun.checkbox(player)
+                        val enemyMove = EnemyMove()
+                        enemyMove.EnemyCheck()
+                        enemyMove.moveEnemies()
                     }else{
                         println("RECUERDA: #=limite del muro, D=puerta, si quieres abrir escribe use key teniendo la key en el inventario")
                     }
@@ -144,6 +153,9 @@ class PlayerStats (var name: String,
                         bigMap[player.posX][player.posY] = '.'
                         player.posY--
                         MapFun.checkbox(player)
+                        val enemyMove = EnemyMove()
+                        enemyMove.EnemyCheck()
+                        enemyMove.moveEnemies()
                     }else{
                         println("RECUERDA: #=limite del muro, D=puerta, si quieres abrir escribe use key teniendo la key en el inventario")
                     }
