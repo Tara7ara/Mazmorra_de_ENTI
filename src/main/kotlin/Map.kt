@@ -76,6 +76,7 @@
         }
     }
 
+    //Molaria que estuviera en un .txt para poder modificarlo ez
     //Mapa del juego
     val bigMap = arrayOf(
         charArrayOf('#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#'),
