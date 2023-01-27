@@ -63,6 +63,7 @@ object Visual {
         println(" #   || ||")
         println(".#---'| |`----.")
         println("`#----' `-----'")
+        Thread.sleep(2000)
         MapFun.printMap()
     }
 

@@ -1,5 +1,5 @@
 class EnemyMove {
-
+/*
     private val mapWidth = 29
     private val mapHeight = 29
 
@@ -71,4 +71,43 @@ class EnemyMove {
         }
         return true
     }
+ */
+//    val enemy = EnemyStats('enemy')//, private val bigMap: Array<CharArray>
+/*fun move(enemy: EnemyStats) {
+    if (bigMap[enemy.posX][enemy.posY] == 'T') {
+        val possibleMoves = mutableListOf<Pair<Int, Int>>()
+        if (enemy.posX > 0 && bigMap[enemy.posX - 1][enemy.posY] != '#' && bigMap[enemy.posX - 1][enemy.posY] != 'D') {
+            possibleMoves.add(Pair(enemy.posX - 1, enemy.posY))
+        }
+        if (enemy.posX < bigMap.size - 1 && bigMap[enemy.posX + 1][enemy.posY] != '#' && bigMap[enemy.posX + 1][enemy.posY] != 'D') {
+            possibleMoves.add(Pair(enemy.posX + 1, enemy.posY))
+        }
+        if (enemy.posY > 0 && bigMap[enemy.posX][enemy.posY - 1] != '#' && bigMap[enemy.posX][enemy.posY - 1] != 'D') {
+            possibleMoves.add(Pair(enemy.posX, enemy.posY - 1))
+        }
+        if (enemy.posY < bigMap[0].size - 1 && bigMap[enemy.posX][enemy.posY + 1] != '#' && bigMap[enemy.posX][enemy.posY + 1] != 'D') {
+            possibleMoves.add(Pair(enemy.posX, enemy.posY + 1))
+        }
+        if (possibleMoves.isNotEmpty()) {
+            val nextPos = possibleMoves[(Math.random() * possibleMoves.size).toInt()]
+            bigMap[enemy.posX][enemy.posY] = '.'
+            enemy.posX = nextPos.first
+            enemy.posY = nextPos.second
+            bigMap[enemy.posX][enemy.posY] = 'T'
+        }
+    }
+}
+ */
+
+    fun canMove(currentX: Int, currentY: Int, nextX: Int, nextY: Int, bigMap: Array<CharArray>): Boolean {
+        val blockedChars = setOf('#', 'D', 'P', 'S', 'A', 'B', 'K', 'J')
+        if (nextX < 0 || nextX >= bigMap.size || nextY < 0 || nextY >= bigMap[0].size) {
+            return false  // Se sale del mapa
+        }
+        if (bigMap[nextX][nextY] in blockedChars) {
+            return false  // La posición está bloqueada
+        }
+        return true  // La posición está libre
+    }
+
 }

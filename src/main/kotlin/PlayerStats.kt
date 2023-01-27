@@ -58,9 +58,11 @@ class PlayerStats (var name: String,
                 if (player.hp + 50 > player.maxHp) {
                     println("Te has curado hasta el maximo de vida")
                     player.hp = player.maxHp
+                    println("Tu vida actual queda en ${player.hp}")
                 } else {
                     println("Te has curado 50 de vida")
                     player.hp += 50
+                    println("Tu vida actual queda en ${player.hp}")
                 }
                 player.potion--
             }
@@ -111,9 +113,6 @@ class PlayerStats (var name: String,
                         bigMap[player.posX][player.posY] = '.'
                         player.posX--
                         MapFun.checkbox(player)
-                        val enemyMove = EnemyMove()
-                        enemyMove.EnemyCheck()
-                        enemyMove.moveEnemies()
                     }else{
                         println("RECUERDA: #=limite del muro, D=puerta, si quieres abrir escribe use key teniendo la key en el inventario")
                     }
@@ -125,9 +124,6 @@ class PlayerStats (var name: String,
                         bigMap[player.posX][player.posY] = '.'
                         player.posX++
                         MapFun.checkbox(player)
-                        val enemyMove = EnemyMove()
-                        enemyMove.EnemyCheck()
-                        enemyMove.moveEnemies()
                     }else{
                         println("RECUERDA: #=limite del muro, D=puerta, si quieres abrir escribe use key teniendo la key en el inventario")
                     }
@@ -138,10 +134,9 @@ class PlayerStats (var name: String,
                         MapFun.clearScreen()
                         bigMap[player.posX][player.posY] = '.'
                         player.posY++
+                        //val enemy = EnemyStats("T")
+                        //EnemyMove().move(enemy)
                         MapFun.checkbox(player)
-                        val enemyMove = EnemyMove()
-                        enemyMove.EnemyCheck()
-                        enemyMove.moveEnemies()
                     }else{
                         println("RECUERDA: #=limite del muro, D=puerta, si quieres abrir escribe use key teniendo la key en el inventario")
                     }
@@ -153,9 +148,6 @@ class PlayerStats (var name: String,
                         bigMap[player.posX][player.posY] = '.'
                         player.posY--
                         MapFun.checkbox(player)
-                        val enemyMove = EnemyMove()
-                        enemyMove.EnemyCheck()
-                        enemyMove.moveEnemies()
                     }else{
                         println("RECUERDA: #=limite del muro, D=puerta, si quieres abrir escribe use key teniendo la key en el inventario")
                     }

@@ -2,9 +2,7 @@ import java.util.*
 import kotlin.system.exitProcess
 
 //clase de enemy stats
-class EnemyStats(var type: String) {
-    var x: Int = 0
-    var y: Int = 0
+class EnemyStats(type: String) {
     private var enemyHp: Int = 0
     private var enemyDmg: Int = 0
     private var maxEnemyHp: Int = 0
@@ -102,6 +100,9 @@ class EnemyStats(var type: String) {
 
                 "use potion"-> {
                     player.usePotion(player)
+                    player.hp -= enemyStats.enemyDmg
+                    println("Has recibido ${enemyStats.enemyDmg} de dmg")
+                    println("Tu vida actual queda en ${player.hp}")
                 }
 
                 "use bomb" -> {
@@ -120,6 +121,12 @@ class EnemyStats(var type: String) {
                         println("Has recibido ${enemyStats.enemyDmg} de dmg")
                         println("Tu vida actual queda en ${player.hp}")
                     }
+                }
+
+                else -> {
+                    player.hp -= enemyStats.enemyDmg
+                    println("Has recibido ${enemyStats.enemyDmg} de dmg")
+                    println("Tu vida actual queda en ${player.hp}")
                 }
             }
 

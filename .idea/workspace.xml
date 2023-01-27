@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="38bb5b0c-2b95-456b-abcd-e42991c5bea3" name="Changes" comment="A ver si se me va la olla ya, para hacer que los enemigos se muevan solo">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/EnemyMove.kt" afterDir="false" />
+    <list default="true" id="38bb5b0c-2b95-456b-abcd-e42991c5bea3" name="Changes" comment="Lo de los enemigos que se muevan solo, se mueven pero me falta que se actualize en el mapa con la nueva posicion">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/EnemyMove.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/EnemyMove.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/EnemyStats.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/EnemyStats.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Map.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Map.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/PlayerStats.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/PlayerStats.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/text.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/text.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,7 +163,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674596308556</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Lo de los enemigos que se muevan solo, se mueven pero me falta que se actualize en el mapa con la nueva posicion">
+      <created>1674604999214</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1674604999214</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -190,6 +197,7 @@
     <MESSAGE value="Falta arreglar el tema de que si me muero me salga del juego sin usar el exitProcess(0), ahora si que si, el feedback es muy correcto" />
     <MESSAGE value="Falta arreglar el tema de que si me muero me salga del juego sin usar el exitProcess(0), ahora si que si, el feedback es muy correcto, falta un par de cosillas que hacer" />
     <MESSAGE value="A ver si se me va la olla ya, para hacer que los enemigos se muevan solo" />
-    <option name="LAST_COMMIT_MESSAGE" value="A ver si se me va la olla ya, para hacer que los enemigos se muevan solo" />
+    <MESSAGE value="Lo de los enemigos que se muevan solo, se mueven pero me falta que se actualize en el mapa con la nueva posicion" />
+    <option name="LAST_COMMIT_MESSAGE" value="Lo de los enemigos que se muevan solo, se mueven pero me falta que se actualize en el mapa con la nueva posicion" />
   </component>
 </project>
