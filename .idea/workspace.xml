@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="38bb5b0c-2b95-456b-abcd-e42991c5bea3" name="Changes" comment="REALMENTE YA ESTA HECHO TODA LA BASE">
+    <list default="true" id="38bb5b0c-2b95-456b-abcd-e42991c5bea3" name="Changes" comment="JUEGO BONITO Y PRESENTABLE">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/PlayerStats.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/PlayerStats.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Text.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Text.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,7 +188,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675095699625</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="JUEGO BONITO Y PRESENTABLE">
+      <created>1675098081404</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1675098081404</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -221,6 +226,7 @@
     <MESSAGE value="Lo de los enemigos que se muevan solo, se mueven pero me falta que se actualize en el mapa con la nueva posicion, y he mejorado un poco el juego" />
     <MESSAGE value="Lo de los enemigos que se muevan solo, se mueven pero me falta que se actualize en el mapa con la nueva posicion,idea del mapa" />
     <MESSAGE value="REALMENTE YA ESTA HECHO TODA LA BASE" />
-    <option name="LAST_COMMIT_MESSAGE" value="REALMENTE YA ESTA HECHO TODA LA BASE" />
+    <MESSAGE value="JUEGO BONITO Y PRESENTABLE" />
+    <option name="LAST_COMMIT_MESSAGE" value="JUEGO BONITO Y PRESENTABLE" />
   </component>
 </project>
