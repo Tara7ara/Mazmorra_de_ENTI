@@ -27,6 +27,15 @@ open class PlayerStats (var name: String,
         }
     }
 
+    //funcion para hacer una cosa estetica en la presentacion
+    fun printEqual(name: String): String {
+        var equal = ""
+        for (i in 1..name.length) {
+            equal += "="
+        }
+        return equal
+    }
+
     //funcion para ver el inventario, esta en player stats porque es lo que usa el player
     private fun inventory(player: PlayerStats){
         println("\n=== Estadisticas ===")
@@ -115,7 +124,7 @@ open class PlayerStats (var name: String,
                         player.posX--
                         mapFunGeneration.checkbox(player)
                     }else{
-                        println("RECUERDA: #=limite del muro, D=puerta, si quieres abrir escribe use key teniendo la key en el inventario")
+                        println("RECUERDA: #=limite del muro, D=puerta, si quieres abrir escribe 'k' teniendo la key en el inventario")
                     }
                 }
 
@@ -126,7 +135,7 @@ open class PlayerStats (var name: String,
                         player.posX++
                         mapFunGeneration.checkbox(player)
                     }else{
-                        println("RECUERDA: #=limite del muro, D=puerta, si quieres abrir escribe use key teniendo la key en el inventario")
+                        println("RECUERDA: #=limite del muro, D=puerta, si quieres abrir escribe 'k' teniendo la key en el inventario")
                     }
                 }
 
@@ -137,7 +146,7 @@ open class PlayerStats (var name: String,
                         player.posY++
                         mapFunGeneration.checkbox(player)
                     }else{
-                        println("RECUERDA: #=limite del muro, D=puerta, si quieres abrir escribe use key teniendo la key en el inventario")
+                        println("RECUERDA: #=limite del muro, D=puerta, si quieres abrir escribe 'k' teniendo la key en el inventario")
                     }
                 }
 
@@ -148,16 +157,16 @@ open class PlayerStats (var name: String,
                         player.posY--
                         mapFunGeneration.checkbox(player)
                     }else{
-                        println("RECUERDA: #=limite del muro, D=puerta, si quieres abrir escribe use key teniendo la key en el inventario")
+                        println("RECUERDA: #=limite del muro, D=puerta, si quieres abrir escribe 'k' teniendo la key en el inventario")
                     }
                 }
 
-                "use potion" -> {
+                "h" -> {
                     mapFunGeneration.clearScreen()
                     usePotion(player)
                     mapFunGeneration.printMap()                }
 
-                "use key" -> {
+                "k" -> {
                     openDor(player)
                 }
 
@@ -166,7 +175,7 @@ open class PlayerStats (var name: String,
                     Visual().showHelp()
                 }
 
-                "inventory" -> {
+                "i" -> {
                     mapFunGeneration.clearScreen()
                     player.inventory(player)
                 }

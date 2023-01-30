@@ -21,9 +21,9 @@ open class Visual {
             player.name = name1
         }
         mapFunGeneration.clearScreen()
-        println("   \\\\\\\\\\\\\\\\  ")
-        println(" .  =======    Tu nombre es: \u001B[33;1m${player.name}\u001B[0m!")
-        println("( )| O   O |  /")
+        println("   \\\\\\\\\\\\\\\\    =================${player.printEqual(player.name)}")
+        println(" .  =======    =Tu nombre es: \u001B[33;1m${player.name}\u001B[0m!=")
+        println("( )| O   O |  /=================${player.printEqual(player.name)}")
         println(" # | ____  | / ")
         println(" #   _| |_")
         println(" #  (     )")
@@ -75,12 +75,13 @@ open class Visual {
         println("- s -->abajo")
         println("- a -->izquierda")
         println("- use sword/potion/boomb/gun")
-        println("- inventory/help")
+        println("- i --> inventario")
+        println("- k --> Para abrir la puerta")
         println("\nDatos general:")
         println("Las letras significan algo, si quieres saber lo que significa, descubrelo por tu parte.")
         println("El '@' significa donde estas tu, si escribes un comando erroneo, en el mapa no se te marcara")
         println("Si te encuentras en un obejto pero no lo pillas, desaparecera, porque tienes una \u001B[31mmaldición\u001B[0m")
-        println("El # es el borde del mapa, y la D es una puerta a la cual has de ir escribiendo use key para abrir la puerta")
+        println("El # es el borde del mapa, y la D es una puerta a la cual has de ir escribiendo 'k' para abrir la puerta")
         printMap()
     }
 

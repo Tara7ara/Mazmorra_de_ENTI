@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="38bb5b0c-2b95-456b-abcd-e42991c5bea3" name="Changes" comment="Lo de los enemigos que se muevan solo, se mueven pero me falta que se actualize en el mapa con la nueva posicion,idea del mapa">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/mapFunGeneration.java" afterDir="false" />
+    <list default="true" id="38bb5b0c-2b95-456b-abcd-e42991c5bea3" name="Changes" comment="REALMENTE YA ESTA HECHO TODA LA BASE">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/EnemyMove.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/EnemyMove.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/EnemyStats.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/EnemyStats.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Map.kt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/PlayerStats.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/PlayerStats.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/text.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Text.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Text.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Text.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,7 +183,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674824010720</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="REALMENTE YA ESTA HECHO TODA LA BASE">
+      <created>1675095699625</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1675095699625</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -218,6 +220,7 @@
     <MESSAGE value="Lo de los enemigos que se muevan solo, se mueven pero me falta que se actualize en el mapa con la nueva posicion" />
     <MESSAGE value="Lo de los enemigos que se muevan solo, se mueven pero me falta que se actualize en el mapa con la nueva posicion, y he mejorado un poco el juego" />
     <MESSAGE value="Lo de los enemigos que se muevan solo, se mueven pero me falta que se actualize en el mapa con la nueva posicion,idea del mapa" />
-    <option name="LAST_COMMIT_MESSAGE" value="Lo de los enemigos que se muevan solo, se mueven pero me falta que se actualize en el mapa con la nueva posicion,idea del mapa" />
+    <MESSAGE value="REALMENTE YA ESTA HECHO TODA LA BASE" />
+    <option name="LAST_COMMIT_MESSAGE" value="REALMENTE YA ESTA HECHO TODA LA BASE" />
   </component>
 </project>
