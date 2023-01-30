@@ -1,5 +1,6 @@
+import mapFunGeneration.bigMap
 //Los stats del Player
-class PlayerStats (var name: String,
+open class PlayerStats (var name: String,
                    var posX: Int = 1,
                    var posY: Int = 1,
                    val maxHp: Int = 100,
@@ -46,7 +47,7 @@ class PlayerStats (var name: String,
         }
         println()
         Thread.sleep(2000)
-        MapFun.printMap()
+        mapFunGeneration.printMap()
     }
 
     //Funcion para beber una pocion, lo mismo que antes, como lo usa el player esta aqui
@@ -95,7 +96,7 @@ class PlayerStats (var name: String,
             } else {
                 println("No hay ninguna puerta cerca, tienes que estar en un rango 2x2 aprox")
             }
-            MapFun.printMap()
+            mapFunGeneration.printMap()
         } else {
             println("No tienes la llave")
         }
@@ -109,10 +110,10 @@ class PlayerStats (var name: String,
                 "w" -> {//go north
 
                     if (player.posX > 0 && bigMap[player.posX - 1][player.posY] != '#' && bigMap[player.posX - 1][player.posY] != 'D') {
-                        MapFun.clearScreen()
+                        mapFunGeneration.clearScreen()
                         bigMap[player.posX][player.posY] = '.'
                         player.posX--
-                        MapFun.checkbox(player)
+                        mapFunGeneration.checkbox(player)
                     }else{
                         println("RECUERDA: #=limite del muro, D=puerta, si quieres abrir escribe use key teniendo la key en el inventario")
                     }
@@ -120,10 +121,10 @@ class PlayerStats (var name: String,
 
                 "s" -> {//go south
                     if (player.posX < bigMap.size - 1 && bigMap[player.posX + 1][player.posY] != '#' && bigMap[player.posX + 1][player.posY] != 'D') {
-                        MapFun.clearScreen()
+                        mapFunGeneration.clearScreen()
                         bigMap[player.posX][player.posY] = '.'
                         player.posX++
-                        MapFun.checkbox(player)
+                        mapFunGeneration.checkbox(player)
                     }else{
                         println("RECUERDA: #=limite del muro, D=puerta, si quieres abrir escribe use key teniendo la key en el inventario")
                     }
@@ -131,12 +132,10 @@ class PlayerStats (var name: String,
 
                 "d" -> {//go east
                     if (player.posY < bigMap[0].size - 1 && bigMap[player.posX][player.posY + 1] != '#'&& bigMap[player.posX][player.posY + 1] != 'D') {
-                        MapFun.clearScreen()
+                        mapFunGeneration.clearScreen()
                         bigMap[player.posX][player.posY] = '.'
                         player.posY++
-                        //val enemy = EnemyStats("T")
-                        //EnemyMove().move(enemy)
-                        MapFun.checkbox(player)
+                        mapFunGeneration.checkbox(player)
                     }else{
                         println("RECUERDA: #=limite del muro, D=puerta, si quieres abrir escribe use key teniendo la key en el inventario")
                     }
@@ -144,32 +143,31 @@ class PlayerStats (var name: String,
 
                 "a" -> {//go west
                     if (player.posY > 0 && bigMap[player.posX][player.posY - 1] != '#' && bigMap[player.posX][player.posY - 1] != 'D') {
-                        MapFun.clearScreen()
+                        mapFunGeneration.clearScreen()
                         bigMap[player.posX][player.posY] = '.'
                         player.posY--
-                        MapFun.checkbox(player)
+                        mapFunGeneration.checkbox(player)
                     }else{
                         println("RECUERDA: #=limite del muro, D=puerta, si quieres abrir escribe use key teniendo la key en el inventario")
                     }
                 }
 
                 "use potion" -> {
-                    MapFun.clearScreen()
+                    mapFunGeneration.clearScreen()
                     usePotion(player)
-                    MapFun.printMap()
-                }
+                    mapFunGeneration.printMap()                }
 
                 "use key" -> {
                     openDor(player)
                 }
 
                 "help" -> {
-                    MapFun.clearScreen()
-                    Visual.showHelp()
+                    mapFunGeneration.clearScreen()
+                    Visual().showHelp()
                 }
 
                 "inventory" -> {
-                    MapFun.clearScreen()
+                    mapFunGeneration.clearScreen()
                     player.inventory(player)
                 }
             }

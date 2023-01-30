@@ -4,12 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="38bb5b0c-2b95-456b-abcd-e42991c5bea3" name="Changes" comment="Lo de los enemigos que se muevan solo, se mueven pero me falta que se actualize en el mapa con la nueva posicion">
+    <list default="true" id="38bb5b0c-2b95-456b-abcd-e42991c5bea3" name="Changes" comment="Lo de los enemigos que se muevan solo, se mueven pero me falta que se actualize en el mapa con la nueva posicion,idea del mapa">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/mapFunGeneration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/EnemyMove.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/EnemyMove.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/EnemyStats.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/EnemyStats.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Map.kt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/PlayerStats.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/PlayerStats.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/text.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/text.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/text.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Text.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +24,7 @@
       <list>
         <option value="Kotlin File" />
         <option value="Kotlin Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -41,7 +45,7 @@
     &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/1_Ciber/kotlin_class&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/1_Ciber/Mazmorra_de_ENTI&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
@@ -170,7 +174,21 @@
       <option name="project" value="LOCAL" />
       <updated>1674604999214</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Lo de los enemigos que se muevan solo, se mueven pero me falta que se actualize en el mapa con la nueva posicion, y he mejorado un poco el juego">
+      <created>1674823954564</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1674823954564</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Lo de los enemigos que se muevan solo, se mueven pero me falta que se actualize en el mapa con la nueva posicion,idea del mapa">
+      <created>1674824010720</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1674824010720</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -198,6 +216,8 @@
     <MESSAGE value="Falta arreglar el tema de que si me muero me salga del juego sin usar el exitProcess(0), ahora si que si, el feedback es muy correcto, falta un par de cosillas que hacer" />
     <MESSAGE value="A ver si se me va la olla ya, para hacer que los enemigos se muevan solo" />
     <MESSAGE value="Lo de los enemigos que se muevan solo, se mueven pero me falta que se actualize en el mapa con la nueva posicion" />
-    <option name="LAST_COMMIT_MESSAGE" value="Lo de los enemigos que se muevan solo, se mueven pero me falta que se actualize en el mapa con la nueva posicion" />
+    <MESSAGE value="Lo de los enemigos que se muevan solo, se mueven pero me falta que se actualize en el mapa con la nueva posicion, y he mejorado un poco el juego" />
+    <MESSAGE value="Lo de los enemigos que se muevan solo, se mueven pero me falta que se actualize en el mapa con la nueva posicion,idea del mapa" />
+    <option name="LAST_COMMIT_MESSAGE" value="Lo de los enemigos que se muevan solo, se mueven pero me falta que se actualize en el mapa con la nueva posicion,idea del mapa" />
   </component>
 </project>

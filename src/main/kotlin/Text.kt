@@ -1,4 +1,5 @@
-object Visual {
+import mapFunGeneration.printMap
+open class Visual {
     //Funciones a la cual hay texto o arte ascii
     fun presentation(player: PlayerStats) {
         println("    ////////  ========================")
@@ -19,7 +20,7 @@ object Visual {
         if (name1 != null) {
             player.name = name1
         }
-        MapFun.clearScreen()
+        mapFunGeneration.clearScreen()
         println("   \\\\\\\\\\\\\\\\  ")
         println(" .  =======    Tu nombre es: \u001B[33;1m${player.name}\u001B[0m!")
         println("( )| O   O |  /")
@@ -34,7 +35,7 @@ object Visual {
         println(".#---'| |`----.")
         println("`#----' `-----'")
         Thread.sleep(2000)
-        MapFun.clearScreen()
+        mapFunGeneration.clearScreen()
         println("    ////////   =====================================")
         println(" .  =======    =Por cierto, te pondre una \u001B[31mmaldición\u001B[0m=")
         println("( )| O   O |  /=====================================")
@@ -49,7 +50,7 @@ object Visual {
         println(".#---'| |`----.")
         println("`#----' `-----'")
         Thread.sleep(2000)
-        MapFun.clearScreen()
+        mapFunGeneration.clearScreen()
         println("   \\\\\\\\\\\\\\\\   ==========================================")
         println(" .  =======   =Este es el mapa, si no entiendes nada   =")
         println("( )| O   O |  =o lo que tienes que hacer, escribe \u001B[33;1mhelp\u001B[0m =")
@@ -64,7 +65,7 @@ object Visual {
         println(".#---'| |`----.")
         println("`#----' `-----'")
         Thread.sleep(2000)
-        MapFun.printMap()
+        printMap()
     }
 
     fun showHelp() {
@@ -80,7 +81,7 @@ object Visual {
         println("El '@' significa donde estas tu, si escribes un comando erroneo, en el mapa no se te marcara")
         println("Si te encuentras en un obejto pero no lo pillas, desaparecera, porque tienes una \u001B[31mmaldición\u001B[0m")
         println("El # es el borde del mapa, y la D es una puerta a la cual has de ir escribiendo use key para abrir la puerta")
-        MapFun.printMap()
+        printMap()
     }
 
     fun asciiPotion() {

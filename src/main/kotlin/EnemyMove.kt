@@ -1,5 +1,6 @@
-class EnemyMove {
 /*
+class EnemyMove {
+
     private val mapWidth = 29
     private val mapHeight = 29
 
@@ -97,7 +98,7 @@ class EnemyMove {
         }
     }
 }
- */
+
 
     fun canMove(currentX: Int, currentY: Int, nextX: Int, nextY: Int, bigMap: Array<CharArray>): Boolean {
         val blockedChars = setOf('#', 'D', 'P', 'S', 'A', 'B', 'K', 'J')
@@ -111,3 +112,5 @@ class EnemyMove {
     }
 
 }
+
+ */
