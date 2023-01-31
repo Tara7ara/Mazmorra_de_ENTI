@@ -1,4 +1,4 @@
-import mapFunGeneration.bigMap
+import MapFunGeneration.map
 //Los stats del Player
 open class PlayerStats (var name: String,
                    var posX: Int = 1,
@@ -11,21 +11,6 @@ open class PlayerStats (var name: String,
                    var key: Boolean = false,
                    var sword: Boolean = false,
                    var gun: Boolean = false){
-
-
-    //initPlayer() es una función que recorre el arreglo bigMap buscando la primera ocurrencia del caracter
-    // @, y asigna las coordenadas de esa posición en las propiedades posX y posY de un objeto player.
-    fun initPlayer() {
-        for (i in 0 until 10) {
-            for (j in 0 until 10) {
-                if (bigMap[i][j] == '@') {
-                    val player = PlayerStats("player")
-                    player.posX = i
-                    player.posY = j
-                }
-            }
-        }
-    }
 
     //funcion para hacer una cosa estetica en la presentacion
     fun printEqual(name: String): String {
@@ -56,7 +41,7 @@ open class PlayerStats (var name: String,
         }
         println()
         Thread.sleep(2000)
-        mapFunGeneration.printMap()
+        MapFunGeneration.printMap()
     }
 
     //Funcion para beber una pocion, lo mismo que antes, como lo usa el player esta aqui
@@ -86,13 +71,13 @@ open class PlayerStats (var name: String,
         if (player.key){
             var doorFound = false
             val minX = if (player.posX-2 < 0) 0 else player.posX-2
-            val maxX = if (player.posX+2 > bigMap.size - 1) bigMap.size - 1 else player.posX+2
+            val maxX = if (player.posX+2 > map.size - 1) map.size - 1 else player.posX+2
             val minY = if (player.posY-2 < 0) 0 else player.posY-2
-            val maxY = if (player.posY+2 > bigMap[0].size - 1) bigMap[0].size - 1 else player.posY+2
+            val maxY = if (player.posY+2 > map[0].size - 1) map[0].size - 1 else player.posY+2
             for (i in minX..maxX) {
                 for (j in minY..maxY) {
-                    if (bigMap[i][j] == 'D') {
-                        bigMap[i][j] = '.'
+                    if (map[i][j] == 'D') {
+                        map[i][j] = '.'
                         doorFound = true
                         break
                     }
@@ -105,7 +90,7 @@ open class PlayerStats (var name: String,
             } else {
                 println("No hay ninguna puerta cerca, tienes que estar en un rango 2x2 aprox")
             }
-            mapFunGeneration.printMap()
+            MapFunGeneration.printMap()
         } else {
             println("No tienes la llave")
         }
@@ -118,65 +103,65 @@ open class PlayerStats (var name: String,
             when (readLine()) {
                 "w" -> {//go north
 
-                    if (player.posX > 0 && bigMap[player.posX - 1][player.posY] != '#' && bigMap[player.posX - 1][player.posY] != 'D') {
-                        mapFunGeneration.clearScreen()
-                        bigMap[player.posX][player.posY] = '.'
+                    if (player.posX > 0 && map[player.posX - 1][player.posY] != '#' && map[player.posX - 1][player.posY] != 'D') {
+                        MapFunGeneration.clearScreen()
+                        map[player.posX][player.posY] = '.'
                         player.posX--
-                        mapFunGeneration.checkbox(player)
+                        MapFunGeneration.checkbox(player)
                     }else{
                         println("RECUERDA: #=limite del muro, D=puerta, si quieres abrir escribe 'k' teniendo la key en el inventario")
                     }
                 }
 
                 "s" -> {//go south
-                    if (player.posX < bigMap.size - 1 && bigMap[player.posX + 1][player.posY] != '#' && bigMap[player.posX + 1][player.posY] != 'D') {
-                        mapFunGeneration.clearScreen()
-                        bigMap[player.posX][player.posY] = '.'
+                    if (player.posX < map.size - 1 && map[player.posX + 1][player.posY] != '#' && map[player.posX + 1][player.posY] != 'D') {
+                        MapFunGeneration.clearScreen()
+                        map[player.posX][player.posY] = '.'
                         player.posX++
-                        mapFunGeneration.checkbox(player)
+                        MapFunGeneration.checkbox(player)
                     }else{
                         println("RECUERDA: #=limite del muro, D=puerta, si quieres abrir escribe 'k' teniendo la key en el inventario")
                     }
                 }
 
                 "d" -> {//go east
-                    if (player.posY < bigMap[0].size - 1 && bigMap[player.posX][player.posY + 1] != '#'&& bigMap[player.posX][player.posY + 1] != 'D') {
-                        mapFunGeneration.clearScreen()
-                        bigMap[player.posX][player.posY] = '.'
+                    if (player.posY < map[0].size - 1 && map[player.posX][player.posY + 1] != '#'&& map[player.posX][player.posY + 1] != 'D') {
+                        MapFunGeneration.clearScreen()
+                        map[player.posX][player.posY] = '.'
                         player.posY++
-                        mapFunGeneration.checkbox(player)
+                        MapFunGeneration.checkbox(player)
                     }else{
                         println("RECUERDA: #=limite del muro, D=puerta, si quieres abrir escribe 'k' teniendo la key en el inventario")
                     }
                 }
 
                 "a" -> {//go west
-                    if (player.posY > 0 && bigMap[player.posX][player.posY - 1] != '#' && bigMap[player.posX][player.posY - 1] != 'D') {
-                        mapFunGeneration.clearScreen()
-                        bigMap[player.posX][player.posY] = '.'
+                    if (player.posY > 0 && map[player.posX][player.posY - 1] != '#' && map[player.posX][player.posY - 1] != 'D') {
+                        MapFunGeneration.clearScreen()
+                        map[player.posX][player.posY] = '.'
                         player.posY--
-                        mapFunGeneration.checkbox(player)
+                        MapFunGeneration.checkbox(player)
                     }else{
                         println("RECUERDA: #=limite del muro, D=puerta, si quieres abrir escribe 'k' teniendo la key en el inventario")
                     }
                 }
 
                 "h" -> {
-                    mapFunGeneration.clearScreen()
+                    MapFunGeneration.clearScreen()
                     usePotion(player)
-                    mapFunGeneration.printMap()                }
+                    MapFunGeneration.printMap()                }
 
                 "k" -> {
                     openDor(player)
                 }
 
                 "help" -> {
-                    mapFunGeneration.clearScreen()
+                    MapFunGeneration.clearScreen()
                     Visual().showHelp()
                 }
 
                 "i" -> {
-                    mapFunGeneration.clearScreen()
+                    MapFunGeneration.clearScreen()
                     player.inventory(player)
                 }
             }
