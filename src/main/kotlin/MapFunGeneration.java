@@ -174,34 +174,42 @@ public class MapFunGeneration {
                 EnemyStats enemyStats = new EnemyStats("devilBoss");
                 enemyStats.combat("devilBoss", player, enemyStats);
             }else if (map[player.getPosX()][player.getPosY()] == 'i') {
+                visual.asciiIan();
                 System.out.println("Hola soy Ian, NO EM DETECTA LA TECLAAAAAAAAAAAAAAAAA");
                 EnemyStats enemyStats = new EnemyStats("ian");
                 enemyStats.combat("ian", player, enemyStats);
             }else if (map[player.getPosX()][player.getPosY()] == 'q') {
+                visual.asciiPablo();
                 System.out.println("Hola soy Pablo, Hasta los huevos de la ia");
                 EnemyStats enemyStats = new EnemyStats("pablo");
                 enemyStats.combat("pablo", player, enemyStats);
             }else if (map[player.getPosX()][player.getPosY()] == 'j') {
+                visual.asciiJhon();
                 System.out.println("Hola soy Jhon, Vamo' a pelear");
                 EnemyStats enemyStats = new EnemyStats("jhon");
                 enemyStats.combat("jhon", player, enemyStats);
             }else if (map[player.getPosX()][player.getPosY()] == 'r') {
+                visual.asciiMarcel();
                 System.out.println("Hola soy Marcel, HASTA LA PUNTA DEL RABO CON EL PARCHIS");
                 EnemyStats enemyStats = new EnemyStats("marcel");
                 enemyStats.combat("marcel", player, enemyStats);
             }else if (map[player.getPosX()][player.getPosY()] == 'e') {
+                visual.asciiErik();
                 System.out.println("Hola soy ERIK, tengo l amano jodida pero vamo a darle");
                 EnemyStats enemyStats = new EnemyStats("erik");
                 enemyStats.combat("erik", player, enemyStats);
             }else if (map[player.getPosX()][player.getPosY()] == 'y') {
+                visual.asciiMarc();
                 System.out.println("Hola soy Marc, me he saltado esta clase, asi que no podras combatir contra mi");
                 EnemyStats enemyStats = new EnemyStats("marc");
                 enemyStats.combat("marc", player, enemyStats);
             }else if (map[player.getPosX()][player.getPosY()] == 't') {
+                visual.asciiToni();
                 System.out.println("Hola soy Toni, TONI NO TONY");
                 EnemyStats enemyStats = new EnemyStats("toni");
                 enemyStats.combat("toni", player, enemyStats);
             }else if (map[player.getPosX()][player.getPosY()] == 'a') {
+                visual.asciiAdria();
                 System.out.println("Hola soy ATY, vamo a robar tu informacion");
                 EnemyStats enemyStats = new EnemyStats("adria");
                 enemyStats.combat("adria", player, enemyStats);
@@ -211,6 +219,7 @@ public class MapFunGeneration {
                 EnemyStats enemyStats = new EnemyStats("marti");
                 enemyStats.combat("marti", player, enemyStats);
             }else if (map[player.getPosX()][player.getPosY()] == 'g') {
+                visual.asciiGuillem();
                 System.out.println("Hola soy Guillem, 'pone cara de SIGMA'");
                 EnemyStats enemyStats = new EnemyStats("guillem");
                 enemyStats.combat("guillem", player, enemyStats);
@@ -220,10 +229,12 @@ public class MapFunGeneration {
                 EnemyStats enemyStats = new EnemyStats("ivelian");
                 enemyStats.combat("ivelian", player, enemyStats);
             }else if (map[player.getPosX()][player.getPosY()] == 'l') {
+                visual.asciiLluc();
                 System.out.println("Hola soy Lluc, SOY MALISIMO EN EL LOL PERO EN PELEAS NO");
                 EnemyStats enemyStats = new EnemyStats("lluc");
                 enemyStats.combat("lluc", player, enemyStats);
             }else if (map[player.getPosX()][player.getPosY()] == 'p') {
+                visual.asciiPau();
                 System.out.println("Hola soy Pau, VAMO A USAR LA FISICA PARA EXPLOTARTE TU CABEZA JAJAJAJAJA");
                 EnemyStats enemyStats = new EnemyStats("pau");
                 enemyStats.combat("pau", player, enemyStats);
