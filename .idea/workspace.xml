@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="38bb5b0c-2b95-456b-abcd-e42991c5bea3" name="Changes" comment="CYBERMAP HECHO :D">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/MapFunGeneration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/MapFunGeneration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Text.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Text.kt" afterDir="false" />
+    <list default="true" id="38bb5b0c-2b95-456b-abcd-e42991c5bea3" name="Changes" comment="PERSONAJES DE CLASES HECHO">
+      <change afterPath="$PROJECT_DIR$/README" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,7 +209,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675202869144</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="PERSONAJES DE CLASES HECHO">
+      <created>1675289451810</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1675289451810</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -245,7 +250,8 @@
     <MESSAGE value="JUEGO BONITO Y PRESENTABLE" />
     <MESSAGE value=":D" />
     <MESSAGE value="CYBERMAP HECHO :D" />
-    <option name="LAST_COMMIT_MESSAGE" value="CYBERMAP HECHO :D" />
+    <MESSAGE value="PERSONAJES DE CLASES HECHO" />
+    <option name="LAST_COMMIT_MESSAGE" value="PERSONAJES DE CLASES HECHO" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
