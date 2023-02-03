@@ -16,7 +16,7 @@ open class Visual {
     fun presentation(player: PlayerStats) {
 
         println("    ////////   =======================================")
-        println(" .  =======    =Como quieres la dificultat del juego?=")
+        println(" .  =======    =Como quieres la dificultad del juego?=")
         println("( )| O   O |  /=======================================")
         println(" # | ____  | / ")
         println(" #   _| |_")

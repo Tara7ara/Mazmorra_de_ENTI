@@ -190,12 +190,12 @@ public class MapFunGeneration {
                 enemyStats.combat("jhon", player, enemyStats);
             }else if (map[player.getPosX()][player.getPosY()] == 'r') {
                 visual.asciiMarcel();
-                System.out.println("Hola soy Marcel, HASTA LA PUNTA DEL RABO CON EL PARCHIS");
+                System.out.println("Hola soy Marcel, HASTA LA PUNTA DEL RABO CON EL AJEDREZ");
                 EnemyStats enemyStats = new EnemyStats("marcel");
                 enemyStats.combat("marcel", player, enemyStats);
             }else if (map[player.getPosX()][player.getPosY()] == 'e') {
                 visual.asciiErik();
-                System.out.println("Hola soy ERIK, tengo l amano jodida pero vamo a darle");
+                System.out.println("Hola soy ERIK, tengo la mano jodida pero vamo a darle");
                 EnemyStats enemyStats = new EnemyStats("erik");
                 enemyStats.combat("erik", player, enemyStats);
             }else if (map[player.getPosX()][player.getPosY()] == 'y') {
