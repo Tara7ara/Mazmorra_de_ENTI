@@ -12,7 +12,7 @@ open class PlayerStats (var name: String,
                    var sword: Boolean = false,
                    var gun: Boolean = false){
 
-    //funcion para hacer una cosa estetica en la presentacion
+    //Función para hacer una cosa estética en la presentación
     fun printEqual(name: String): String {
         var equal = ""
         for (i in 1..name.length) {
@@ -21,12 +21,12 @@ open class PlayerStats (var name: String,
         return equal
     }
 
-    //funcion para ver el inventario, esta en player stats porque es lo que usa el player
+    //Función para ver el inventario, está en player stats porque es lo que usa el player
     private fun inventory(player: PlayerStats){
-        println("\n=== Estadisticas ===")
-        println("Name: ${player.name}, Coordenadas: [ ${player.posX}, ${player.posY} ]")
-        println("HP - [ ${player.hp} / ${player.maxHp} ]")
-        println("DMG - ${player.dmg}")
+        println("\n=== Estadísticas ===")
+        println("Nombre: ${player.name}, Coordenadas: [ ${player.posX}, ${player.posY} ]")
+        println("Vida - [ ${player.hp} / ${player.maxHp} ]")
+        println("Daño - ${player.dmg}")
         println("=== Inventario ===")
         println("Tienes ${player.potion} pociones")
         println("Tienes ${player.bomb} bombas")
@@ -44,14 +44,14 @@ open class PlayerStats (var name: String,
         MapFunGeneration.printMap()
     }
 
-    //Funcion para beber una pocion, lo mismo que antes, como lo usa el player esta aqui
+    //Función para beber una poción, lo mismo que antes
     fun usePotion(player: PlayerStats){
         if (player.potion > 0){
             if (player.hp == player.maxHp) {
                 println("Ya tienes la vida máxima, no necesitas consumir una poción.")
             } else {
                 if (player.hp + 50 > player.maxHp) {
-                    println("Te has curado hasta el maximo de vida")
+                    println("Te has curado hasta el máximo  de vida")
                     player.hp = player.maxHp
                     println("Tu vida actual queda en ${player.hp}")
                 } else {
@@ -66,7 +66,7 @@ open class PlayerStats (var name: String,
         }
     }
 
-    //Funcion para abrir la puerta mas cercana, lo mismo que antes, como lo usa el player esta aqui
+//Función para abrir la puerta más cercana, lo mismo que antes
     private fun openDor(player: PlayerStats){
         if (player.key){
             var doorFound = false
@@ -86,9 +86,10 @@ open class PlayerStats (var name: String,
             }
             if (doorFound) {
                 player.key = false
-                println("La llave se ha usado, LA PUERTA MAS CERCA HA DESAPARECIDO, ESTA EN EL RANGO DE TU POSICION")
+                println("La llave se ha usado, LA PUERTA MÁS CERCA HA DESAPARECIDO, ESTÁ EN EL RANGO DE TU POSICIÓN")
+
             } else {
-                println("No hay ninguna puerta cerca, tienes que estar en un rango 2x2 aprox")
+                println("No hay ninguna puerta cerca, tienes que estar en un rango 2x2 aprox.")
             }
             MapFunGeneration.printMap()
         } else {
@@ -96,7 +97,7 @@ open class PlayerStats (var name: String,
         }
     }
 
-    //Bucle principal (movimiento, etc.), esta aqui porque es lo que usa el player
+    //Bucle principal (movimiento, etc.), esta aquí porque es lo que usa el player
     fun mainLoop(player: PlayerStats){
         while (true) {
             println("Que quieres hacer? (w, a, s, d)")
@@ -109,8 +110,7 @@ open class PlayerStats (var name: String,
                         player.posX--
                         MapFunGeneration.checkbox(player)
                     }else{
-                        println("RECUERDA: #=limite del muro, D=puerta, si quieres abrir escribe 'k' teniendo la key en el inventario")
-                    }
+                        println("RECUERDA: #=límite del muro, D=puerta, si quieres abrir escribe 'k' teniendo la llave en el inventario")                    }
                 }
 
                 "s" -> {//go south
@@ -120,8 +120,7 @@ open class PlayerStats (var name: String,
                         player.posX++
                         MapFunGeneration.checkbox(player)
                     }else{
-                        println("RECUERDA: #=limite del muro, D=puerta, si quieres abrir escribe 'k' teniendo la key en el inventario")
-                    }
+                        println("RECUERDA: #=límite del muro, D=puerta, si quieres abrir escribe 'k' teniendo la llave en el inventario")                    }
                 }
 
                 "d" -> {//go east
@@ -131,8 +130,7 @@ open class PlayerStats (var name: String,
                         player.posY++
                         MapFunGeneration.checkbox(player)
                     }else{
-                        println("RECUERDA: #=limite del muro, D=puerta, si quieres abrir escribe 'k' teniendo la key en el inventario")
-                    }
+                        println("RECUERDA: #=límite del muro, D=puerta, si quieres abrir escribe 'k' teniendo la llave en el inventario")                    }
                 }
 
                 "a" -> {//go west
@@ -142,8 +140,7 @@ open class PlayerStats (var name: String,
                         player.posY--
                         MapFunGeneration.checkbox(player)
                     }else{
-                        println("RECUERDA: #=limite del muro, D=puerta, si quieres abrir escribe 'k' teniendo la key en el inventario")
-                    }
+                        println("RECUERDA: #=límite del muro, D=puerta, si quieres abrir escribe 'k' teniendo la llave en el inventario")                    }
                 }
 
                 "h" -> {

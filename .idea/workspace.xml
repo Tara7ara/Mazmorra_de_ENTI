@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="38bb5b0c-2b95-456b-abcd-e42991c5bea3" name="Changes" comment="readme añadido">
+    <list default="true" id="38bb5b0c-2b95-456b-abcd-e42991c5bea3" name="Changes" comment="Faltas de ortografia...">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/EnemyStats.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/EnemyStats.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/MapFunGeneration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/MapFunGeneration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/PlayerStats.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/PlayerStats.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Text.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Text.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,6 +42,7 @@
     &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-18&quot;,
     &quot;last_opened_file_path&quot;: &quot;D:/1_Ciber/Mazmorra_de_ENTI&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
@@ -225,7 +228,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675290168328</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Faltas de ortografia...">
+      <created>1675429580668</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1675429580668</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -261,7 +271,8 @@
     <MESSAGE value="CYBERMAP HECHO :D" />
     <MESSAGE value="PERSONAJES DE CLASES HECHO" />
     <MESSAGE value="readme añadido" />
-    <option name="LAST_COMMIT_MESSAGE" value="readme añadido" />
+    <MESSAGE value="Faltas de ortografia..." />
+    <option name="LAST_COMMIT_MESSAGE" value="Faltas de ortografia..." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

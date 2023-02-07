@@ -8,6 +8,7 @@ open class EnemyStats(type: String) {
     private var maxEnemyHp: Int = 0
 
     init {
+        //Nombre de los enemigos y las estadísticas
         when (type) {
             "orc" -> {
                 maxEnemyHp = 50
@@ -30,7 +31,7 @@ open class EnemyStats(type: String) {
                 enemyDmg = 20
             }
 
-            //Para el mapa de cyber (representacion de la clase)
+            //Para el mapa de cyber (representación de la clase)
             "ian" -> { // i
                 maxEnemyHp = 100
                 enemyHp = 100
@@ -105,94 +106,94 @@ open class EnemyStats(type: String) {
 
         while (enemyStats.enemyHp > 0 && player.hp > 0) {
 
-            println("\n=== Combat ===")
-            println("Enemigo: $enemy - HP [${enemyStats.enemyHp} / ${enemyStats.maxEnemyHp}] - DMG [${enemyStats.enemyDmg}]")
+            println("\n=== Combate ===")
+            println("Enemigo: $enemy - HP [${enemyStats.enemyHp} / ${enemyStats.maxEnemyHp}] - DAÑO [${enemyStats.enemyDmg}]")
             println("${player.name}, Coordenadas: [ ${player.posX}, ${player.posY} ]")
-            println("HP - [ ${player.hp} / ${player.maxHp} ]")
-            println("DMG - [ ${player.dmg}]")
+            println("VIDA - [ ${player.hp} / ${player.maxHp} ]")
+            println("DAÑO- [ ${player.dmg}]")
             println("=== Acciones ===")
-            println("- Hit")
+            println("- Hit (h)")
             if (player.sword) {
-                println("- Use sword")
+                println("- Use sword (s)")
             }
             if (player.gun) {
-                println("- Use gun")
+                println("- Use gun (g)")
             }
             if (player.potion > 0) {
-                println("- Use potion")
+                println("- Use potion (p)")
             }
             if (player.bomb > 0) {
-                println("- Use bomb")
+                println("- Use bomb (b)")
             }
 
             when (readLine()) {
 
-                "hit" -> {
+                "h" -> {
                     enemyStats.enemyHp -= player.dmg
                     player.hp -= enemyStats.enemyDmg
                     println("Has hecho ${player.dmg} dmg")
-                    println("Has recibido ${enemyStats.enemyDmg} de dmg")
+                    println("Has recibido ${enemyStats.enemyDmg} de daño")
                     println("Tu vida actual queda en ${player.hp}")
                 }
 
-                "use sword" -> {
+                "s" -> {
                     if (player.sword) {
                         enemyStats.enemyHp -= player.dmg + 25
                         player.hp -= enemyStats.enemyDmg
-                        println("Has hecho ${player.dmg+25} de dmg")
-                        println("Has recibido ${enemyStats.enemyDmg} de dmg")
+                        println("Has hecho ${player.dmg+25} de daño")
+                        println("Has recibido ${enemyStats.enemyDmg} de daño")
                         println("Tu vida actual queda en ${player.hp}")
                     } else {
                         println("No tienes espada")
                         player.hp -= enemyStats.enemyDmg
-                        println("Has recibido ${enemyStats.enemyDmg} de dmg")
+                        println("Has recibido ${enemyStats.enemyDmg} de daño")
                         println("Tu vida actual queda en ${player.hp}")
                     }
                 }
 
-                "use gun" -> {
+                "g" -> {
                     if (player.gun) {
                         enemyStats.enemyHp -= player.dmg + 50
                         player.hp -= enemyStats.enemyDmg
-                        println("Has hecho ${player.dmg+50} de dmg")
-                        println("Has recibido ${enemyStats.enemyDmg} de dmg")
+                        println("Has hecho ${player.dmg+50} de daño")
+                        println("Has recibido ${enemyStats.enemyDmg} de daño")
                         println("Tu vida actual queda en ${player.hp}")
                     } else {
                         println("No tienes la pistola")
                         player.hp -= enemyStats.enemyDmg
-                        println("Has recibido ${enemyStats.enemyDmg} de dmg")
+                        println("Has recibido ${enemyStats.enemyDmg} de v")
                         println("Tu vida actual queda en ${player.hp}")
                     }
                 }
 
-                "use potion"-> {
+                "p"-> {
                     player.usePotion(player)
                     player.hp -= enemyStats.enemyDmg
-                    println("Has recibido ${enemyStats.enemyDmg} de dmg")
+                    println("Has recibido ${enemyStats.enemyDmg} de daño")
                     println("Tu vida actual queda en ${player.hp}")
                 }
 
-                "use bomb" -> {
+                "b" -> {
                     if (player.bomb > 0) {
                         val bombDmg = random.nextInt(6)
                         enemyStats.enemyHp -= 50
                         player.hp -= bombDmg + enemyStats.enemyDmg
                         player.bomb--
                         println("Has hecho 50 de dmg")
-                        println("Has recibido $bombDmg de dmg, por el daño explosivo")
-                        println("Has recibido ${enemyStats.enemyDmg} de dmg por el enemigo")
+                        println("Has recibido $bombDmg de daño, por el daño explosivo")
+                        println("Has recibido ${enemyStats.enemyDmg} de daño por el enemigo")
                         println("Tu vida actual queda en ${player.hp}")
                     } else {
                         println("No tienes bombas")
                         player.hp -= enemyStats.enemyDmg
-                        println("Has recibido ${enemyStats.enemyDmg} de dmg")
+                        println("Has recibido ${enemyStats.enemyDmg} de daño")
                         println("Tu vida actual queda en ${player.hp}")
                     }
                 }
 
                 else -> {
                     player.hp -= enemyStats.enemyDmg
-                    println("Has recibido ${enemyStats.enemyDmg} de dmg")
+                    println("Has recibido ${enemyStats.enemyDmg} de daño")
                     println("Tu vida actual queda en ${player.hp}")
                 }
             }

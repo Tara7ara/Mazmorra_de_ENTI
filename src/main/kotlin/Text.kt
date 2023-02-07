@@ -15,9 +15,9 @@ open class Visual {
     //Funciones a la cual hay texto o arte ascii
     fun presentation(player: PlayerStats) {
 
-        println("    ////////   =======================================")
-        println(" .  =======    =Como quieres la dificultad del juego?=")
-        println("( )| O   O |  /=======================================")
+        println("    ////////   ========================================")
+        println(" .  =======    =¿Como quieres la dificultad del juego?=")
+        println("( )| O   O |  /========================================")
         println(" # | ____  | / ")
         println(" #   _| |_")
         println(" #  (     )")
@@ -33,9 +33,9 @@ open class Visual {
         MapFunGeneration.dificult()
 
         MapFunGeneration.clearScreen()
-        println("    ////////   ========================")
-        println(" .  =======    =Como quieres llamarte?=")
-        println("( )| O   O |  /========================")
+        println("    ////////   =========================")
+        println(" .  =======    =¿Cómo quieres llamarte?=")
+        println("( )| O   O |  /=========================")
         println(" # | ____  | / ")
         println(" #   _| |_")
         println(" #  (     )")
@@ -68,7 +68,7 @@ open class Visual {
         Thread.sleep(2000)
         MapFunGeneration.clearScreen()
         println("    ////////   =====================================")
-        println(" .  =======    =Por cierto, te pondre una \u001B[31mmaldición\u001B[0m=")
+        println(" .  =======    =Por cierto, te pondré una \u001B[31mmaldición\u001B[0m=")
         println("( )| O   O |  /=====================================")
         println(" # | ____  | / ")
         println(" #   _| |_")
@@ -105,19 +105,20 @@ open class Visual {
         println("- d -->derecha")
         println("- s -->abajo")
         println("- a -->izquierda")
-        println("- use sword/potion/boomb/gun")
+        println("- h --> para usar las pociones fuera del combate")
         println("- i --> inventario")
         println("- k --> Para abrir la puerta")
-        println("\nDatos general:")
-        println("Las letras significan algo, si quieres saber lo que significa, descubrelo por tu parte.")
-        println("El '@' significa donde estas tu, si escribes un comando erroneo, en el mapa no se te marcara")
-        println("Si te encuentras en un obejto pero no lo pillas, desaparecera, porque tienes una \u001B[31mmaldición\u001B[0m")
+        println("- En combate te saldrá las opciones para poder batallar")
+        println("\nDatos generales:")
+        println("Las letras significan algo, si quieres saber lo que significa, descúbrelo por tu parte.")
+        println("El '@' significa donde estás tú, si escribes un comando erróneo, en el mapa no se te marcará")
+        println("Si te encuentras en un objeto, pero no lo pillas (escribiendo NO), desaparecerá, porque tienes una \u001B[31mmaldición\u001B[0m")
         println("El # es el borde del mapa, y la D es una puerta a la cual has de ir escribiendo 'k' para abrir la puerta")
         printMap()
     }
 
     fun asciiPotion() {
-        println("hay una pocion en el suelo, quieres pillarlo? (yes/no)")
+        println("hay una poción  en el suelo, quieres pillarlo? (yes/no)")
         println()
         println("\u001b[31m  |    | \u001b[0m")
         println("\u001b[31m C|====| \u001b[0m")
@@ -164,7 +165,7 @@ open class Visual {
 
     fun asciiKey() {
         println("hay una llave en el suelo, quieres pillarlo? (yes/no)")
-        println("Este es el unico objeto que si dices que no, puede que sea imposible acabar el juego, elige bien")
+        println("Este es el único objeto que, si dices que no, puede que sea imposible acabar el juego, elige bien")
         println()
         println("\u001B[33;1m  8 8          ,o.   \u001B[0m")
         println("\u001B[33;1m d8o8azzzzzzzzd   b\u001B[0m")
@@ -254,10 +255,10 @@ open class Visual {
         println(" Y8a.    .a8P 88         '8b, , aa '8a,   ,d88  88   88,  '8a, , a8'  aa    ]8I ")
         println("  `'Y8888Y''  88          `'Ybbd8''  `''8bbdP'  88   ''Y8   'YbbdP'   ''YbbdP''")
         println("\n- Diseño del juego: Taratara")
-        println("- Codigo del juego: Taratara")
+        println("- Código del juego: Taratara")
         println("- Arte asciiart.eu y ascii.co.uk/art")
         println("- Beta testers: Guillem, Jan, Taratara")
-        println("- En la elecion del mapa si pones cyber tendras una sorpresa")
+        println("- En la elección del mapa si pones cyber tendrás una sorpresa")
     }
 
     fun asciiWin() {

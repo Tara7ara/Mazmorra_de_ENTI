@@ -3,7 +3,7 @@ import java.util.Scanner;
 //ARCHIVO EN JAVA
 public class MapFunGeneration {
 
-    //Mapa del juego
+    //Mapa del juego (30x30)
     static char[][] bigMap = new char[][]{
             {'#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#'},
             {'#', '@', '.', '.', '.', '.', '.', 'T', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', 'K', 'P', '.', '#'},
@@ -37,6 +37,7 @@ public class MapFunGeneration {
             {'#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#'}
     };
 
+    //Mapa del juego (10x10)
     static char[][] smallMap = new char[][]{
             {'#','#','#','#','#','#','#','#','#','#'},
             {'#','@','.','.','.','P','.','.','.','#'},
@@ -50,6 +51,7 @@ public class MapFunGeneration {
             {'#','#','#','#','#','#','#','#','#','#'}
     };
 
+    //Mapa del juego especial
     static char[][] cyberMap = new char[][]{
             {'#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#'},
             {'#','@','i','q','j','r','e','y','t','a','m','g','b','l','p','#'},
@@ -57,6 +59,7 @@ public class MapFunGeneration {
             {'#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#'}
     };
 
+    //El mapa que has selecionado pasa a ser usado
     public static char[][] map = new char[0][0];
 
     public static void dificult(){
@@ -82,7 +85,7 @@ public class MapFunGeneration {
         }
     }
 
-    // printMap() es una función que imprime el contenido del arreglo bigMap.
+    //printMap() es una función que imprime el contenido del arreglo Map.
     static void printMap() {
         for (char[] fila : map) {
             for (char character : fila) {
@@ -92,14 +95,14 @@ public class MapFunGeneration {
         }
     }
 
-    //Funcion para limpiar la consola
+    //Función  para limpiar la consola
     public static void clearScreen() {
         for (int i = 1; i <= 35; i++) {
             System.out.println();
         }
     }
 
-    //Checkeo de la casilla en la cual estas y actuar de x manera dependiendo de la casilla
+    //Chequeo de la casilla en la cual estas y actuar de x manera dependiendo de la casilla
     public static void checkbox(PlayerStats player) {
         Visual visual = new Visual();
             if (map[player.getPosX()][player.getPosY()] == 'P') {
@@ -175,17 +178,17 @@ public class MapFunGeneration {
                 enemyStats.combat("devilBoss", player, enemyStats);
             }else if (map[player.getPosX()][player.getPosY()] == 'i') {
                 visual.asciiIan();
-                System.out.println("Hola soy Ian, NO EM DETECTA LA TECLAAAAAAAAAAAAAAAAA");
+                System.out.println("Hola soy Ian, NO ME DETECTA LA TECLAAAAAAAAAAAAAAAAA");
                 EnemyStats enemyStats = new EnemyStats("ian");
                 enemyStats.combat("ian", player, enemyStats);
             }else if (map[player.getPosX()][player.getPosY()] == 'q') {
                 visual.asciiPablo();
-                System.out.println("Hola soy Pablo, Hasta los huevos de la ia");
+                System.out.println("Hola soy Pablo, estoy hasta los huevos de la IA");
                 EnemyStats enemyStats = new EnemyStats("pablo");
                 enemyStats.combat("pablo", player, enemyStats);
             }else if (map[player.getPosX()][player.getPosY()] == 'j') {
                 visual.asciiJhon();
-                System.out.println("Hola soy Jhon, Vamo' a pelear");
+                System.out.println("Hola soy Jhon, Vamo' a pelear 'saca una navaja'");
                 EnemyStats enemyStats = new EnemyStats("jhon");
                 enemyStats.combat("jhon", player, enemyStats);
             }else if (map[player.getPosX()][player.getPosY()] == 'r') {
@@ -195,27 +198,27 @@ public class MapFunGeneration {
                 enemyStats.combat("marcel", player, enemyStats);
             }else if (map[player.getPosX()][player.getPosY()] == 'e') {
                 visual.asciiErik();
-                System.out.println("Hola soy ERIK, tengo la mano jodida pero vamo a darle");
+                System.out.println("Hola soy ERIK, tengo la mano jodida, pero tengo armas secretas en la riñonera");
                 EnemyStats enemyStats = new EnemyStats("erik");
                 enemyStats.combat("erik", player, enemyStats);
             }else if (map[player.getPosX()][player.getPosY()] == 'y') {
                 visual.asciiMarc();
-                System.out.println("Hola soy Marc, me he saltado esta clase, asi que no podras combatir contra mi");
+                System.out.println("Hola soy Marc, me he saltado esta clase, así que no podrás combatir contra mí");
                 EnemyStats enemyStats = new EnemyStats("marc");
                 enemyStats.combat("marc", player, enemyStats);
             }else if (map[player.getPosX()][player.getPosY()] == 't') {
                 visual.asciiToni();
-                System.out.println("Hola soy Toni, TONI NO TONY");
+                System.out.println("Hola soy Toni, TONI NO TONY AAAAAAAAAAAAAAAA");
                 EnemyStats enemyStats = new EnemyStats("toni");
                 enemyStats.combat("toni", player, enemyStats);
             }else if (map[player.getPosX()][player.getPosY()] == 'a') {
                 visual.asciiAdria();
-                System.out.println("Hola soy ATY, vamo a robar tu informacion");
+                System.out.println("Hola soy ATY, voy a robar tu información");
                 EnemyStats enemyStats = new EnemyStats("adria");
                 enemyStats.combat("adria", player, enemyStats);
             }else if (map[player.getPosX()][player.getPosY()] == 'm') {
                 visual.asciiTaratara();
-                System.out.println("Hola soy Marti, NO TE ESCUCHOOOOOOOO");
+                System.out.println("Hola soy Martí, NO TE ESCUCHOOOOOOOO");
                 EnemyStats enemyStats = new EnemyStats("marti");
                 enemyStats.combat("marti", player, enemyStats);
             }else if (map[player.getPosX()][player.getPosY()] == 'g') {
@@ -225,17 +228,17 @@ public class MapFunGeneration {
                 enemyStats.combat("guillem", player, enemyStats);
             }else if (map[player.getPosX()][player.getPosY()] == 'b') {
                 visual.asciiIvelian();
-                System.out.println("Hola soy Ivelian, no existo :D");
+                System.out.println("Hola soy Ivelian, abracadabra me desaparezco");
                 EnemyStats enemyStats = new EnemyStats("ivelian");
                 enemyStats.combat("ivelian", player, enemyStats);
             }else if (map[player.getPosX()][player.getPosY()] == 'l') {
                 visual.asciiLluc();
-                System.out.println("Hola soy Lluc, SOY MALISIMO EN EL LOL PERO EN PELEAS NO");
+                System.out.println("Hola soy Lluc, SOY MALÍSIMO EN EL LOL PERO EN PELEAS NO");
                 EnemyStats enemyStats = new EnemyStats("lluc");
                 enemyStats.combat("lluc", player, enemyStats);
             }else if (map[player.getPosX()][player.getPosY()] == 'p') {
                 visual.asciiPau();
-                System.out.println("Hola soy Pau, VAMO A USAR LA FISICA PARA EXPLOTARTE TU CABEZA JAJAJAJAJA");
+                System.out.println("Hola soy Pau, VAMOS A USAR LA FÍSICA PARA EXPLOTARTE TU CABEZA JAJAJAJAJA");
                 EnemyStats enemyStats = new EnemyStats("pau");
                 enemyStats.combat("pau", player, enemyStats);
             }
