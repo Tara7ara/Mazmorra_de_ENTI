@@ -83,7 +83,7 @@ open class Visual {
         Thread.sleep(2000)
         MapFunGeneration.clearScreen()
         println("   \\\\\\\\\\\\\\\\   ==========================================")
-        println(" .  =======   =Este es el mapa, si no entiendes nada   =")
+        println(" .  =======   =Este es el mapa, si no entiendes nada,  =")
         println("( )| O   O |  =o lo que tienes que hacer, escribe \u001B[33;1mhelp\u001B[0m =")
         println(" # | ____  | /==========================================")
         println(" #   _| |_")
@@ -101,7 +101,7 @@ open class Visual {
 
     fun showHelp() {
         println("Los controles son:")
-        println("\n- w- ->arriba")
+        println("\n- w-->arriba")
         println("- d -->derecha")
         println("- s -->abajo")
         println("- a -->izquierda")
