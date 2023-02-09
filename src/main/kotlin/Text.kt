@@ -13,6 +13,7 @@ open class Visual {
     }
 
     //Funciones a la cual hay texto o arte ascii
+    //El guia de este juego se llama Paco
     fun presentation(player: PlayerStats) {
 
         println("    ////////   ========================================")

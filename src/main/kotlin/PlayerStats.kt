@@ -110,7 +110,7 @@ open class PlayerStats (var name: String,
                         player.posX--
                         MapFunGeneration.checkbox(player)
                     }else{
-                        println("RECUERDA: #=límite del muro, D=puerta, si quieres abrir escribe 'k' teniendo la llave en el inventario")                    }
+                        println("RECUERDA: #=límite del muro, D=puerta, si quieres abrir escribe 'k' teniendo la llave en el inventario")}
                 }
 
                 "s" -> {//go south
@@ -120,7 +120,7 @@ open class PlayerStats (var name: String,
                         player.posX++
                         MapFunGeneration.checkbox(player)
                     }else{
-                        println("RECUERDA: #=límite del muro, D=puerta, si quieres abrir escribe 'k' teniendo la llave en el inventario")                    }
+                        println("RECUERDA: #=límite del muro, D=puerta, si quieres abrir escribe 'k' teniendo la llave en el inventario")}
                 }
 
                 "d" -> {//go east
@@ -130,7 +130,7 @@ open class PlayerStats (var name: String,
                         player.posY++
                         MapFunGeneration.checkbox(player)
                     }else{
-                        println("RECUERDA: #=límite del muro, D=puerta, si quieres abrir escribe 'k' teniendo la llave en el inventario")                    }
+                        println("RECUERDA: #=límite del muro, D=puerta, si quieres abrir escribe 'k' teniendo la llave en el inventario")}
                 }
 
                 "a" -> {//go west
@@ -140,13 +140,14 @@ open class PlayerStats (var name: String,
                         player.posY--
                         MapFunGeneration.checkbox(player)
                     }else{
-                        println("RECUERDA: #=límite del muro, D=puerta, si quieres abrir escribe 'k' teniendo la llave en el inventario")                    }
+                        println("RECUERDA: #=límite del muro, D=puerta, si quieres abrir escribe 'k' teniendo la llave en el inventario")}
                 }
 
                 "h" -> {
                     MapFunGeneration.clearScreen()
                     usePotion(player)
-                    MapFunGeneration.printMap()                }
+                    MapFunGeneration.printMap()
+                }
 
                 "k" -> {
                     openDor(player)
